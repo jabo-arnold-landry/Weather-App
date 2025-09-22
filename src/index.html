@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="bg-Neutral-900 text-white">
-    <header class="flex justify-between items-center px-4 py-4">
+    <header class="flex flex-wrap justify-between items-center px-4 py-4">
       <head>
         <img src="/images/logo.svg" alt="weather now logo" class="max-w-2/5" />
       </head>
@@ -28,13 +28,27 @@
         <img src="/images/icon-dropdown.svg" alt="" />
       </div>
     </header>
-    <main>
-      <h1>How's the sky looking today</h1>
+    <main class="flex flex-col items-center gap-5">
+      <h1 class="text-2xl">How's the sky looking today</h1>
       <div class="search-section">
-        <form action="">
-          <img src="/images/icon-search.svg" alt="" />
-          <input type="search" placeholder="search for a place..." />
-          <button>search</button>
+        <form action="" class="">
+          <div class="relative grid sm:flex sm:items-center gap-3">
+            <img
+              src="/images/icon-search.svg"
+              alt="search-icon"
+              class="size-5"
+            />
+            <input
+              type="search"
+              placeholder="search for a place..."
+              class="bg-Neutral-800 rounded-md px-4 py-1"
+            />
+            <button
+              class="col-span-full self-center bg-Blue-500 px-3 py-0.5 rounded-md border-none sm:py-1 focus-within:border-2"
+            >
+              search
+            </button>
+          </div>
         </form>
       </div>
       <section class="result-section">

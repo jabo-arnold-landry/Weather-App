@@ -16,14 +16,16 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="bg-Neutral-900 text-white">
-    <header>
+    <header class="flex justify-between items-center px-4 py-4">
       <head>
-        <img src="/images/logo.svg" alt="weather now logo" />
-        <p>weather now</p>
+        <img src="/images/logo.svg" alt="weather now logo" class="max-w-2/5" />
       </head>
-      <div>
+      <div
+        class="flex items-center gap-1.5 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md"
+      >
         <img src="/images/icon-units.svg" alt="settings icon" class="" />
-        <p>Units <img src="/images/icon-dropdown.svg" alt="" /></p>
+        <p>Units</p>
+        <img src="/images/icon-dropdown.svg" alt="" />
       </div>
     </header>
     <main>

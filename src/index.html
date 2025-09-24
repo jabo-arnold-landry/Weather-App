@@ -20,16 +20,47 @@
       <head>
         <img src="/images/logo.svg" alt="weather now logo" class="max-w-2/5" />
       </head>
-      <div
-        class="flex items-center gap-1.5 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
-      >
-        <img src="/images/icon-units.svg" alt="settings icon" class="" />
-        <p>Units</p>
-        <img src="/images/icon-dropdown.svg" alt="" />
-      </div>
+      <section class="relative">
+        <div
+          class="flex items-center gap-2 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
+        >
+          <img src="/images/icon-units.svg" alt="settings icon" class="" />
+          <p>Units</p>
+          <img src="/images/icon-dropdown.svg" alt="" />
+        </div>
+        <div
+          class="drop-down-menu bg-Neutral-800 min-w-fit py-1.5 pl-2 pr-5 absolute -right-1 z-30 rounded-md mt-1"
+        >
+          <span class="text-neutral-200 line-clamp-1 mb-2 truncate"
+            >switch to emperial</span
+          >
+          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+            <span class="text-Neutral-300">temperature</span>
+            <div class="options text-white text-md space-y-3">
+              <button>celcius(<sup>o</sup>C)</button> <br />
+              <button>fahrenheit(<sup>o</sup>F)</button>
+            </div>
+          </div>
+          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+            <span class="text-Neutral-300">wind speed</span>
+            <div class="options text-white text-md space-y-3">
+              <button>km/h</button> <br />
+              <button>mph</button>
+            </div>
+          </div>
+          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+            <span class="text-Neutral-300">precipitation</span>
+            <div class="options text-white text-md space-y-3">
+              <button>millimeter(mm)</button> <br />
+              <button>inches(in)</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
+
     <main class="flex flex-col items-center gap-5">
-      <h1 class="text-3xl text-center">How's the sky looking today</h1>
+      <h1 class="text-3xl text-center">How's the sky looking today?</h1>
       <div class="search-section">
         <form action="" class="">
           <div class="relative grid sm:flex sm:items-center gap-3">
@@ -56,30 +87,6 @@
       </section>
     </main>
     <!-- Insert temperature here -->
-    <div class="drop-down-menu bg-Neutral-800 w-fit py-2 px-1.5">
-      <span class="text-Neutral-300">switch to imperial</span>
-      <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
-        <span class="text-Neutral-300">temperature</span>
-        <div class="options text-white text-md">
-          <button>celcius(<sup>o</sup>C)</button> <br />
-          <button>fahrenheit(<sup>o</sup>F)</button>
-        </div>
-      </div>
-      <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
-        <span class="text-Neutral-300">wind speed</span>
-        <div class="options text-white text-md">
-          <button>km/h</button> <br />
-          <button>mph</button>
-        </div>
-      </div>
-      <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
-        <span class="text-Neutral-300">precipitation</span>
-        <div class="options text-white text-md">
-          <button>millimeter(mm)</button> <br />
-          <button>inches(in)</button>
-        </div>
-      </div>
-    </div>
     <!-- Insert humidity here -->
 
     Wind

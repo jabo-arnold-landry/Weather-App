@@ -59,11 +59,13 @@
       </section>
     </header>
 
-    <main class="flex flex-col items-center gap-5">
+    <main class="flex flex-col items-center gap-5 @container">
       <h1 class="text-3xl text-center">How's the sky looking today?</h1>
-      <div class="search-section">
+      <div class="">
         <form action="" class="">
-          <div class="relative grid sm:flex sm:items-center gap-3">
+          <div
+            class="relative grid @xs:flex @xs:items-center @xs:mx-2.5 gap-3 mx-3 sm:m-0"
+          >
             <img
               src="/images/icon-search.svg"
               alt="search-icon"
@@ -72,10 +74,11 @@
             <input
               type="search"
               placeholder="search for a place..."
-              class="bg-Neutral-800 rounded-md px-8 py-1.5 w-full placeholder:px-2 focus-within:outline-2 focus-within:outline-Neutral-300 hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
+              class="bg-Neutral-800 rounded-md px-8 py-1.5 w-full placeholder:px-2 placeholder:truncate focus-within:outline-2 focus-within:outline-Neutral-300 hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
             />
             <button
               class="col-span-full self-center bg-Blue-500 cursor-pointer px-4 py-1 rounded-md border-none sm:py-1 md: py-3focus-within:border-2 hover:bg-Blue-700 transition-colors duration-300 ease-in-out delay-150"
+              type="submit"
             >
               search
             </button>
@@ -87,26 +90,23 @@
       </section>
     </main>
     <!-- Insert temperature here -->
+    <article></article>
     <!-- Insert humidity here -->
 
-    Wind
     <!-- Insert wind here -->
 
-    Precipitation
     <!-- Insert precipitation here -->
 
-    Daily forecast
     <!-- Insert daily forecast for the next 7 days here -->
 
-    Hourly forecast
     <!-- Insert hourly forecast for the selected day here -->
 
-    <div class="attribution">
+    <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" class="bg-green-500"
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    </div> -->
     <script src="/src/javascript/index.js"></script>
   </body>
 </html>

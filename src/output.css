@@ -7,20 +7,15 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-neutral-200: oklch(92.2% 0 0);
-    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --radius-xs: 0.125rem;
     --radius-md: 0.375rem;
-    --radius-xl: 0.75rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -29,7 +24,6 @@
     --color-Neutral-800: hsl(243, 27%, 20%);
     --color-Neutral-600: hsl(243, 23%, 30%);
     --color-Neutral-300: hsl(240, 6%, 70%);
-    --color-Neutral-200: hsl(250, 6%, 84%);
     --color-Blue-500: hsl(233, 67%, 56%);
     --color-Blue-700: hsl(248, 70%, 36%);
   }
@@ -195,6 +189,9 @@
   .static {
     position: static;
   }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
   .top-2 {
     top: calc(var(--spacing) * 2);
   }
@@ -207,11 +204,26 @@
   .z-30 {
     z-index: 30;
   }
+  .z-\[-1\] {
+    z-index: -1;
+  }
+  .z-\[1\] {
+    z-index: 1;
+  }
+  .z-\[2\] {
+    z-index: 2;
+  }
   .col-span-full {
     grid-column: 1 / -1;
   }
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
+  }
+  .mx-5 {
+    margin-inline: calc(var(--spacing) * 5);
+  }
+  .mx-10 {
+    margin-inline: calc(var(--spacing) * 10);
   }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
@@ -240,15 +252,22 @@
   .table {
     display: table;
   }
+  .aspect-video {
+    aspect-ratio: var(--aspect-video);
+  }
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
   }
+  .size-10 {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+  }
+  .h-auto {
+    height: auto;
+  }
   .w-full {
     width: 100%;
-  }
-  .max-w-2 {
-    max-width: calc(var(--spacing) * 2);
   }
   .max-w-2\/5 {
     max-width: calc(2/5 * 100%);
@@ -256,14 +275,8 @@
   .min-w-fit {
     min-width: fit-content;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -315,12 +328,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .rounded-md {
     border-radius: var(--radius-md);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-none {
     --tw-border-style: none;
@@ -337,6 +349,9 @@
   }
   .bg-green-500 {
     background-color: var(--color-green-500);
+  }
+  .object-cover {
+    object-fit: cover;
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -377,9 +392,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .underline {
-    text-decoration-line: underline;
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -446,14 +458,14 @@
       margin: calc(var(--spacing) * 0);
     }
   }
+  .sm\:mx-10 {
+    @media (width >= 40rem) {
+      margin-inline: calc(var(--spacing) * 10);
+    }
+  }
   .sm\:flex {
     @media (width >= 40rem) {
       display: flex;
-    }
-  }
-  .sm\:items-center {
-    @media (width >= 40rem) {
-      align-items: center;
     }
   }
   .sm\:py-1 {
@@ -461,9 +473,9 @@
       padding-block: calc(var(--spacing) * 1);
     }
   }
-  .\@xs\:mx-2 {
-    @container (width >= 20rem) {
-      margin-inline: calc(var(--spacing) * 2);
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
     }
   }
   .\@xs\:mx-2\.5 {
@@ -481,26 +493,12 @@
       align-items: center;
     }
   }
-  .\@sm\:flex {
-    @container (width >= 24rem) {
-      display: flex;
-    }
-  }
-  .\@sm\:items-center {
-    @container (width >= 24rem) {
-      align-items: center;
-    }
-  }
-  .\@sm\:bg-black {
-    @container (width >= 24rem) {
-      background-color: var(--color-black);
-    }
-  }
-  .\@sm\:bg-red-500 {
-    @container (width >= 24rem) {
-      background-color: var(--color-red-500);
-    }
-  }
+}
+.location-info {
+  background-image: url(/images/bg-today-large.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 @property --tw-space-y-reverse {
   syntax: "*";

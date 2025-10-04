@@ -91,30 +91,29 @@
     </main>
     <!-- Insert temperature here -->
     <article>
-      <section class="aspect-video relative overflow-hidden sm:mx-10">
-        <img
-          src="/images/bg-today-large.svg"
-          alt="background"
-          class="h-auto object-cover absolute inset-0 z-[-1]"
-        />
-        <div class="flex flex-wrap justify-around items-center">
+      <section
+        class="bg-[url('/images/bg-today-small.svg')] bg-cover bg-top-right mx-5 md:bg-[url('/images/bg-today-large.svg')]"
+      >
+        <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
+        <div
+          class="flex flex-wrap justify-center sm:justify-between items-center"
+        >
           <div>
             <strong>Berlin, Germany</strong>
             <p>Tuesday, Aug 5, 2025</p>
           </div>
 
-          <div class="location-weather-status">
+          <div class="">
             <img
               src="/images/icon-sunny.webp"
               alt=""
-              class="size-15 sm:size-16"
+              class="size-1/4 sm:size-3/4"
             />
             <span>20 <sup>o</sup></span>
           </div>
         </div>
       </section>
     </article>
-
     <!-- Insert daily forecast for the next 7 days here -->
 
     <!-- Insert hourly forecast for the selected day here -->
@@ -125,6 +124,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div> -->
-    <script type="module" src="/src/javascript/index.js"></script>
+    <!-- <script type="module" src="/src/javascript/index.js"></script> -->
   </body>
 </html>

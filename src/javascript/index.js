@@ -1,3 +1,4 @@
+import { displayGeneralWeatherInformation } from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 async function getLocation(location) {
@@ -23,7 +24,7 @@ async function weatherInformation(location) {
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min`
     );
     const weatherData = await response.json();
-    return {
+    const generalInfo = {
       "feels like": [
         weatherData.current.temperature_2m,
         weatherData.current_units.temperature_2m,
@@ -37,11 +38,13 @@ async function weatherInformation(location) {
         weatherData.current_units.wind_speed_10m,
       ],
     };
+    displayGeneralWeatherInformation(generalInfo);
   } catch (err) {
     console.log("something bad happened: ", err);
   }
 }
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  if (!input.value) return alert("not something we can do");
   weatherInformation(input.value);
 });

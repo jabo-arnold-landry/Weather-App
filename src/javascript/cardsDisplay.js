@@ -6,7 +6,7 @@ function displayGeneralWeatherInformation(obj) {
   for (let keys in obj) {
     const div = document.createElement("div");
     const weatherValue = obj[keys][0];
-    const valueUnit = obj[keys][1]
+    const valueUnit = obj[keys][1];
     div.innerHTML += `
       <h2>${keys}</h2
       <p>${weatherValue} ${valueUnit}</p>
@@ -16,7 +16,5 @@ function displayGeneralWeatherInformation(obj) {
   generalInfoSection.append(docFragment);
 }
 
-function sevenDaysForecastDisplay(){
-  
-}
+function sevenDaysForecastDisplay() {}
 export { displayGeneralWeatherInformation };

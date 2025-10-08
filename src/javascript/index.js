@@ -21,7 +21,7 @@ async function weatherInformation(location) {
   try {
     const { lat, lon } = await getLocation(location);
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m`
     );
     const weatherData = await response.json();
     const generalInfo = {
@@ -37,7 +37,12 @@ async function weatherInformation(location) {
         weatherData.current.wind_speed_10m,
         weatherData.current_units.wind_speed_10m,
       ],
+      precipitation: [
+        weatherData.current.precipitation,
+        weatherData.current_units.precipitation,
+      ],
     };
+    console.log(weatherData);
     displayGeneralWeatherInformation(generalInfo);
   } catch (err) {
     console.log("something bad happened: ", err);

@@ -1,4 +1,7 @@
-import { displayGeneralWeatherInformation } from "./cardsDisplay.js";
+import {
+  displayGeneralWeatherInformation,
+  sevenDaysForecastDisplay,
+} from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 async function getLocation(location) {
@@ -42,8 +45,12 @@ async function weatherInformation(location) {
         weatherData.current_units.precipitation,
       ],
     };
-    console.log(weatherData);
+
     displayGeneralWeatherInformation(generalInfo);
+    sevenDaysForecastDisplay(
+      weatherData.daily.temperature_2m_max,
+      weatherData.daily.temperature_2m_min
+    );
   } catch (err) {
     console.log("something bad happened: ", err);
   }

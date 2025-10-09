@@ -50,4 +50,12 @@ function sevenDaysForecastDisplay(
   }
   dailyForecastSection.append(docFragment);
 }
-export { displayGeneralWeatherInformation, sevenDaysForecastDisplay };
+
+function displayHourlyForecast(hourlyForecast, weatherCode) {
+  console.log([hourlyForecast, weatherCode]);
+}
+export {
+  displayGeneralWeatherInformation,
+  sevenDaysForecastDisplay,
+  displayHourlyForecast,
+};

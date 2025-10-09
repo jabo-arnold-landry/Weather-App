@@ -30,12 +30,14 @@ function sevenDaysForecastDisplay(maxWeekForecasts, minWeekForecasts) {
   dailyForecastSection.innerHTML = "";
   for (let i = 0; i < 7; i++) {
     const div = document.createElement("div");
+    const maxTempForecast = maxWeekForecasts[i];
+    const minTempForecast = minWeekForecasts[i];
     div.innerHTML = `
     <h3>${daysofWeek[i]}</h3>
     <img src='' alt="weather status image" >
     <section>
-      <span>${maxWeekForecasts[i]}<sup>o</sup></span>
-      <span>${minWeekForecasts[i]}<sup>o</sup></span>
+      <span>${maxTempForecast}<sup>o</sup></span>
+      <span>${minTempForecast}<sup>o</sup></span>
     </section>`;
     docFragment.append(div);
   }

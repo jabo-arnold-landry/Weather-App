@@ -14,7 +14,12 @@ const icons = {
   80: { icon: "/images/icon-snow.webp" },
   81: { icon: "/images/icon-snow.webp" },
   82: { icon: "/images/icon-snow.webp" },
-  95: { icon: "/images/icon-storm" },
-  96: { icon: "/images/icon-storm" },
-  99: { icon: "/images/icon-storm" },
+  95: { icon: "/images/icon-storm.webp" },
+  96: { icon: "/images/icon-storm.webp" },
+  99: { icon: "/images/icon-storm.webp" },
 };
+
+function weatherIcon(weatherCode) {
+  return icons[weatherCode].icon;
+}
+export default weatherIcon;

@@ -49,7 +49,8 @@ async function weatherInformation(location) {
     displayGeneralWeatherInformation(generalInfo);
     sevenDaysForecastDisplay(
       weatherData.daily.temperature_2m_max,
-      weatherData.daily.temperature_2m_min
+      weatherData.daily.temperature_2m_min,
+      weatherData.daily.weather_code
     );
   } catch (err) {
     console.log("something bad happened: ", err);

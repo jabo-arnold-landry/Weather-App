@@ -1,24 +1,20 @@
-function getWeatherIcon(weatherCode, isDay) {
-  const icons = {
-    0: { day: "/images/", night: "clear-night.svg" },
-    1: { day: "clear.svg", night: "clear-night.svg" },
-    2: { day: "/images/partly-cloudy.webp", night: "partly-cloudy-night.svg" },
-    3: { day: "/images/overcast.webp", night: "overcast.svg" },
-    45: { day: "/images/fog.svg", night: "fog.svg" },
-    48: { day: "fog.svg", night: "fog.svg" },
-    51: { day: "drizzle.svg", night: "drizzle.svg" },
-    53: { day: "drizzle.svg", night: "drizzle.svg" },
-    55: { day: "drizzle.svg", night: "drizzle.svg" },
-    61: { day: "rain.svg", night: "rain.svg" },
-    63: { day: "rain.svg", night: "rain.svg" },
-    65: { day: "rain.svg", night: "rain.svg" },
-    80: { day: "showers.svg", night: "showers.svg" },
-    81: { day: "showers.svg", night: "showers.svg" },
-    82: { day: "showers.svg", night: "showers.svg" },
-    95: { day: "thunderstorm.svg", night: "thunderstorm.svg" },
-    96: { day: "thunderstorm.svg", night: "thunderstorm.svg" },
-    99: { day: "thunderstorm.svg", night: "thunderstorm.svg" },
-  };
-
- 
-} 
+const icons = {
+  0: { icon: "/images/icon-sunny.webp" },
+  1: { icon: "/images/icon-sunny.webp" },
+  2: { icon: "/images/icon-partly-cloudy.webp" },
+  3: { icon: "/images/icon-overcast.webp" },
+  45: { icon: "/images/icon-fog.webp" },
+  48: { icon: "/images/icon-fog.webp" },
+  51: { icon: "/images/icon-drizzle.webp" },
+  53: { icon: "/images/icon-drizzle.webp" },
+  55: { icon: "/images/icon-drizzle.webp" },
+  61: { icon: "/images/icon-rain.webp" },
+  63: { icon: "/images/icon-rain.webp" },
+  65: { icon: "/images/icon-rain.webp" },
+  80: { icon: "/images/icon-snow.webp" },
+  81: { icon: "/images/icon-snow.webp" },
+  82: { icon: "/images/icon-snow.webp" },
+  95: { icon: "/images/icon-storm" },
+  96: { icon: "/images/icon-storm" },
+  99: { icon: "/images/icon-storm" },
+};

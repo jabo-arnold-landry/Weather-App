@@ -51,8 +51,14 @@ function sevenDaysForecastDisplay(
   dailyForecastSection.append(docFragment);
 }
 
-function displayHourlyForecast(hourlyForecast, weatherCode) {
-  console.log([hourlyForecast, weatherCode]);
+function displayHourlyForecast(hourlyForecast) {
+  const dailyChunks = [];
+  for (let i = 0; i < 7; i++) {
+    const start = i * 24;
+    const end = start + 24;
+    dailyChunks.push(hourlyForecast.slice(start, end));
+  }
+  console.log(dailyChunks);
 }
 export {
   displayGeneralWeatherInformation,

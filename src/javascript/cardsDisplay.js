@@ -78,6 +78,11 @@ function extractingHoursForTheWeather(
 daysDropDownMenu.addEventListener("click", () => {
   daysList.classList.toggle("hidden");
 });
+daysList.innerHTML = "";
+daysofWeek.forEach((day) => {
+  daysList.innerHTML += `<button>${day}</button>`;
+});
+
 export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,

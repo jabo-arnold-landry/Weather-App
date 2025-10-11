@@ -51,17 +51,19 @@ function sevenDaysForecastDisplay(
   dailyForecastSection.append(docFragment);
 }
 
-function displayHourlyForecast(hourlyForecast) {
+function extractingHoursForTheWather(hourlyForecast) {
   const dailyChunks = [];
   for (let i = 0; i < 7; i++) {
-    const start = i * 24;
-    const end = start + 24;
-    dailyChunks.push(hourlyForecast.slice(start, end));
+    const startIndex = 24 - 9;
+    const endIndex = startIndex + 7;
+    const startHour = new Date(hourlyForecast[startIndex]).getHours();
+    const endHour = new Date(hourlyForecast[endIndex]).getHours();
+    console.log([startHour, endHour]);
   }
-  console.log(dailyChunks);
+  console.log(hourlyForecast);
 }
 export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
-  displayHourlyForecast,
+  extractingHoursForTheWather,
 };

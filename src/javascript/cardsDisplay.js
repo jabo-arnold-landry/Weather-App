@@ -51,7 +51,7 @@ function sevenDaysForecastDisplay(
   dailyForecastSection.append(docFragment);
 }
 
-function extractingHoursForTheWather(hourlyForecast) {
+function extractingHoursForTheWeather(hourlyForecast) {
   const dailyChunks = [];
   for (let i = 0; i < 7; i++) {
     const startIndex = 24 - 9;
@@ -65,5 +65,5 @@ function extractingHoursForTheWather(hourlyForecast) {
 export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
-  extractingHoursForTheWather,
+  extractingHoursForTheWeather,
 };

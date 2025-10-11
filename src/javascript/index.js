@@ -1,7 +1,7 @@
 import {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
-  extractingHoursForTheWather,
+  extractingHoursForTheWeather,
 } from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
@@ -53,7 +53,7 @@ async function weatherInformation(location) {
       weatherData.daily.temperature_2m_min,
       weatherData.daily.weather_code
     );
-   extractingHoursForTheWather( weatherData.hourly.time);
+    extractingHoursForTheWeather(weatherData.hourly.time);
     console.log(weatherData);
   } catch (err) {
     console.log("something bad happened: ", err);

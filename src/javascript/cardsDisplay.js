@@ -5,7 +5,6 @@ const hourlyForecastSection = document.querySelector(
 );
 const daysDropDownMenu = hourlyForecastSection.querySelector("button");
 const daysList = document.querySelector("#days-list");
-console.log([hourlyForecastSection, daysList, daysDropDownMenu]);
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -58,16 +57,23 @@ function sevenDaysForecastDisplay(
   dailyForecastSection.append(docFragment);
 }
 
-function extractingHoursForTheWeather(hourlyForecast) {
+function extractingHoursForTheWeather(
+  hourlyForecast,
+  hourlyWeatherCode,
+  hourlyTemperature
+) {
   const dailyChunks = [];
   for (let i = 0; i < 7; i++) {
     const startIndex = 24 - 9;
     const endIndex = startIndex + 7;
-    const startHour = new Date(hourlyForecast[startIndex]).getHours();
-    const endHour = new Date(hourlyForecast[endIndex]).getHours();
-    console.log([startHour, endHour]);
+    const obj = {};
+    obj[daysofWeek[i]] = {
+      time: hourlyForecast.slice(startIndex, endIndex),
+      weatherCode: hourlyWeatherCode.slice(startIndex, endIndex),
+      temperature: hourlyTemperature.slice(startIndex, endIndex),
+    };
+    dailyChunks.push(obj);
   }
-  console.log(hourlyForecast);
 }
 daysDropDownMenu.addEventListener("click", () => {
   daysList.classList.toggle("hidden");

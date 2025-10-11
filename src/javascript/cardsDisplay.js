@@ -1,5 +1,20 @@
 const generalInfoSection = document.querySelector("#general-info-section");
 const dailyForecastSection = document.querySelector("#daily-forecast-section");
+const hourlyForecastSection = document.querySelector(
+  "#hourly-forecast-section"
+);
+const daysDropDownMenu = hourlyForecastSection.querySelector("button");
+const daysList = document.querySelector("#days-list");
+console.log([hourlyForecastSection, daysList, daysDropDownMenu]);
+const daysofWeek = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
 import weatherIcon from "./iconsList.js";
 
 function displayGeneralWeatherInformation(obj) {
@@ -17,15 +32,7 @@ function displayGeneralWeatherInformation(obj) {
   }
   generalInfoSection.append(docFragment);
 }
-const daysofWeek = [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday",
-];
+
 function sevenDaysForecastDisplay(
   maxWeekForecasts,
   minWeekForecasts,
@@ -62,6 +69,9 @@ function extractingHoursForTheWeather(hourlyForecast) {
   }
   console.log(hourlyForecast);
 }
+daysDropDownMenu.addEventListener("click", () => {
+  daysList.classList.toggle("hidden");
+});
 export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,

@@ -118,7 +118,28 @@
     <!-- Insert daily forecast for the next 7 days here -->
     <section id="daily-forecast-section"></section>
     <!-- Insert hourly forecast for the selected day here -->
-    <section id="hourly-forecast-section"></section>
+    <section id="hourly-forecast-section" class="relative">
+      <div
+        class="flex items-center gap-2 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
+      >
+        <p>Day</p>
+        <img src="/images/icon-dropdown.svg" alt="" />
+      </div>
+      <section class="hourly-forecast">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+            src="/images/icon-partly-cloudy.webp"
+            alt="weather code"
+            class="size-13 inlin-block"
+          />
+          <time datetime="now">5pm</time>
+          </div>
+          <p>23<sup>o</sup></p>
+        </div>
+      </section>
+    </section>
+
     <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" class="bg-green-500"

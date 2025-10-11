@@ -241,6 +241,14 @@
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
   }
+  .size-10 {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+  }
+  .size-13 {
+    width: calc(var(--spacing) * 13);
+    height: calc(var(--spacing) * 13);
+  }
   .w-full {
     width: 100%;
   }
@@ -252,6 +260,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .flex-col {
     flex-direction: column;

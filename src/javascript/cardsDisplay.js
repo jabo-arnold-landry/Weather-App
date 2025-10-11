@@ -5,6 +5,7 @@ const hourlyForecastSection = document.querySelector(
 );
 const daysDropDownMenu = hourlyForecastSection.querySelector("button");
 const daysList = document.querySelector("#days-list");
+const hourlData = document.querySelector("#hourly-data");
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -82,7 +83,13 @@ daysList.innerHTML = "";
 daysofWeek.forEach((day) => {
   daysList.innerHTML += `<button>${day}</button>`;
 });
-
+function displayingHourlyData(day, obj) {
+  const hourlyData = obj[day];
+  
+}
+daysList.addEventListener("click", (e) => {
+  displayingHourlyData(e.target.textContent, dataSet);
+});
 export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,

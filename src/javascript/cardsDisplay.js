@@ -83,7 +83,7 @@ daysList.innerHTML = "";
 daysofWeek.forEach((day) => {
   daysList.innerHTML += `<button>${day}</button>`;
 });
-function displayingHourlyData(day = "monday", obj) {
+function filteringHourlyData(day = "monday", obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
   console.log([weatherCode, time, temperature]);
@@ -108,7 +108,7 @@ function displayingHourlyData(day = "monday", obj) {
 }
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
-    displayingHourlyData(e.target.textContent, dailyChunks);
+    filteringHourlyData(e.target.textContent, dailyChunks);
     daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
     daysList.classList.toggle("hidden");
   }

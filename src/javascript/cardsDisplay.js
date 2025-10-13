@@ -65,8 +65,8 @@ function extractingHoursForTheWeather(
 ) {
   const dailyChunks = [];
   for (let i = 0; i < 7; i++) {
-    const startIndex = 24 - 9;
-    const endIndex = startIndex + 7;
+    const startIndex = (i * 24 )+ 15; // getting hours at 3pm
+    const endIndex = (i * 24 )+ 22;//getting hours at 10pm
     const obj = {};
     obj[daysofWeek[i]] = {
       time: hourlyForecast.slice(startIndex, endIndex),

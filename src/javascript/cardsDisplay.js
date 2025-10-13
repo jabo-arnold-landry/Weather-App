@@ -65,10 +65,10 @@ function extractingHoursForTheWeather(
   hourlyTemperature
 ) {
   for (let i = 0; i < 7; i++) {
-    const startIndex = (i * 24 )+ 15; // getting hours at 3pm
-    const endIndex = (i * 24 )+ 22;//getting hours at 10pm
-    const obj = {};
-    obj[daysofWeek[i]] = {
+    const startIndex = i * 24 + 15; // getting hours at 3pm
+    const endIndex = i * 24 + 22; //getting hours at 10pm
+
+    dailyChunks[daysofWeek[i]] = {
       time: hourlyForecast.slice(startIndex, endIndex),
       weatherCode: hourlyWeatherCode.slice(startIndex, endIndex),
       temperature: hourlyTemperature.slice(startIndex, endIndex),
@@ -84,7 +84,6 @@ daysofWeek.forEach((day) => {
   daysList.innerHTML += `<button>${day}</button>`;
 });
 function displayingHourlyData(day = "monday", obj) {
-  
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
   console.log([weatherCode, time, temperature]);
@@ -92,7 +91,8 @@ function displayingHourlyData(day = "monday", obj) {
     hourlDataSection.innerHTML = "";
     const hourIcon = weatherIcon(weatherCode[i]);
     const div = document.createElement("div");
-    div.innerHTML = ` 
+    div.classList.add("flex", "items-center", "justify-between");
+    div.innerHTML = `
           <div class="flex items-center">
             <img
               src="${hourIcon}"
@@ -109,8 +109,8 @@ function displayingHourlyData(day = "monday", obj) {
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     displayingHourlyData(e.target.textContent, dailyChunks);
-    // daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
-    // daysList.classList.toggle("hidden");
+    daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
+    daysList.classList.toggle("hidden");
   }
 });
 export {

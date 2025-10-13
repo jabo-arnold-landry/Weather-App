@@ -85,10 +85,14 @@ daysofWeek.forEach((day) => {
 });
 function displayingHourlyData(day, obj) {
   const hourlyData = obj[day];
-  
 }
 daysList.addEventListener("click", (e) => {
-  displayingHourlyData(e.target.textContent, dataSet);
+  if (e.target.matches("button")) {
+    alert(e.target.textContent);
+    displayingHourlyData(e.target.textContent, dataSet);
+    daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
+    daysList.classList.toggle("hidden");
+  }
 });
 export {
   displayGeneralWeatherInformation,

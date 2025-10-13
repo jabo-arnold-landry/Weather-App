@@ -5,7 +5,8 @@ const hourlyForecastSection = document.querySelector(
 );
 const daysDropDownMenu = hourlyForecastSection.querySelector("button");
 const daysList = document.querySelector("#days-list");
-const hourlData = document.querySelector("#hourly-data");
+const hourlDataSection = document.querySelector("#hourly-data");
+console.log(hourlDataSection);
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -57,24 +58,23 @@ function sevenDaysForecastDisplay(
   }
   dailyForecastSection.append(docFragment);
 }
-
+const dailyChunks = {};
 function extractingHoursForTheWeather(
   hourlyForecast,
   hourlyWeatherCode,
   hourlyTemperature
 ) {
-  const dailyChunks = [];
   for (let i = 0; i < 7; i++) {
     const startIndex = 24 - 9;
     const endIndex = startIndex + 7;
-    const obj = {};
-    obj[daysofWeek[i]] = {
+
+    dailyChunks[daysofWeek[i]] = {
       time: hourlyForecast.slice(startIndex, endIndex),
       weatherCode: hourlyWeatherCode.slice(startIndex, endIndex),
       temperature: hourlyTemperature.slice(startIndex, endIndex),
     };
-    dailyChunks.push(obj);
   }
+  return dailyChunks;
 }
 daysDropDownMenu.addEventListener("click", () => {
   daysList.classList.toggle("hidden");
@@ -83,15 +83,34 @@ daysList.innerHTML = "";
 daysofWeek.forEach((day) => {
   daysList.innerHTML += `<button>${day}</button>`;
 });
-function displayingHourlyData(day, obj) {
-  const hourlyData = obj[day];
+function displayingHourlyData(day = "monday", obj) {
+  
+  const docFragment = document.createDocumentFragment();
+  const { weatherCode, time, temperature } = obj[day];
+  console.log([weatherCode, time, temperature]);
+  for (let i = 0; i < 7; i++) {
+    hourlDataSection.innerHTML = "";
+    const hourIcon = weatherIcon(weatherCode[i]);
+    const div = document.createElement("div");
+    div.innerHTML = ` 
+          <div class="flex items-center">
+            <img
+              src="${hourIcon}"
+              alt="weather code"
+              class="size-13 inlin-block"
+            />
+            <time datetime="now">${time[i]}</time>
+          </div>
+          <p>${temperature[i]}<sup>o</sup></p>`;
+    docFragment.append(div);
+  }
+  hourlDataSection.append(docFragment);
 }
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
-    alert(e.target.textContent);
-    displayingHourlyData(e.target.textContent, dataSet);
-    daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
-    daysList.classList.toggle("hidden");
+    displayingHourlyData(e.target.textContent, dailyChunks);
+    // daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
+    // daysList.classList.toggle("hidden");
   }
 });
 export {

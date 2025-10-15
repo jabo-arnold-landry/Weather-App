@@ -74,6 +74,7 @@ function extractingHoursForTheWeather(
       temperature: hourlyTemperature.slice(startIndex, endIndex),
     };
   }
+  filteringHourlyData("monday", dailyChunks);
   return dailyChunks;
 }
 daysDropDownMenu.addEventListener("click", () => {
@@ -86,6 +87,7 @@ daysofWeek.forEach((day) => {
 function filteringHourlyData(day = "monday", obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
+  daysList.classList.toggle("hidden");
   console.log([weatherCode, time, temperature]);
   for (let i = 0; i < 7; i++) {
     hourlDataSection.innerHTML = "";
@@ -108,9 +110,9 @@ function filteringHourlyData(day = "monday", obj) {
 }
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
+    daysList.classList.toggle("hidden");
     filteringHourlyData(e.target.textContent, dailyChunks);
     daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
-    daysList.classList.toggle("hidden");
   }
 });
 export {

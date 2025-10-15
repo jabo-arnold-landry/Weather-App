@@ -6,6 +6,7 @@ import {
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
+const weatherDataSection = document.querySelector("#weather-section");
 async function getLocation(location) {
   try {
     const response = await fetch(
@@ -13,8 +14,7 @@ async function getLocation(location) {
     );
     const data = await response.json();
     if (!data.results) {
-      (erroMessage.innerHTML = "no search results found !");
-      return 
+      return "";
     }
     return {
       country: data.results[0].country,
@@ -26,9 +26,8 @@ async function getLocation(location) {
     console.log("Somthing went wrong:", err);
   }
 }
-async function weatherInformation(location) {
+async function weatherInformation(lat, lon) {
   try {
-    const { lat, lon } = await getLocation(location);
     const response = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code`
     );
@@ -71,5 +70,11 @@ async function weatherInformation(location) {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!input.value) return alert("not something we can do");
-  weatherInformation(input.value);
+  const { lat, lon } = await getLocation(input.value);
+  if (!lon) {
+    erroMessage.innerHTML = "no search results found !";
+    return;
+  }
+  weatherInformation(lat, lon);
+  weatherDataSection.hidden = false;
 });

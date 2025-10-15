@@ -5,12 +5,17 @@ import {
 } from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
+const erroMessage = document.querySelector("#error-message");
 async function getLocation(location) {
   try {
     const response = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`
     );
     const data = await response.json();
+    if (!data.results) {
+      (erroMessage.innerHTML = "no search results found !");
+      return 
+    }
     return {
       country: data.results[0].country,
       city: data.results[0].name,
@@ -18,7 +23,7 @@ async function getLocation(location) {
       lon: data.results[0].longitude,
     };
   } catch (err) {
-    console.log("something bad happened: ", err);
+    console.log("Somthing went wrong:", err);
   }
 }
 async function weatherInformation(location) {

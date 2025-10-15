@@ -62,7 +62,7 @@
     <main class="flex flex-col items-center gap-5 @container">
       <h1 class="text-3xl text-center">How's the sky looking today?</h1>
       <div class="">
-        <form action="" class="">
+        <form action="">
           <div
             class="relative grid @xs:flex @xs:items-center @xs:mx-2.5 gap-3 mx-3 sm:m-0"
           >
@@ -83,14 +83,12 @@
               search
             </button>
           </div>
+          <p id="error-message" class="empty:hidden text-center"></p>
         </form>
       </div>
-      <section class="result-section">
-        <p id="error-message" class="empty:hidden"></p>
-      </section>
+      <section class="result-section"></section>
     </main>
-    <!-- Insert temperature here -->
-    <article>
+    <article id="weather-section">
       <section
         class="bg-[url('/images/bg-today-small.svg')] bg-cover bg-top-right mx-5 md:bg-[url('/images/bg-today-large.svg')]"
       >
@@ -113,26 +111,27 @@
           </div>
         </div>
       </section>
+      <!-- Insert temperature here -->
+      <section id="general-info-section"></section>
+      <!-- Insert daily forecast for the next 7 days here -->
+      <section id="daily-forecast-section"></section>
+      <!-- Insert hourly forecast for the selected day here -->
+      <section id="hourly-forecast-section" class="">
+        <div class="relative">
+          <button
+            class="flex items-center gap-2 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
+          >
+            Monday
+            <img src="/images/icon-dropdown.svg" alt="" />
+          </button>
+          <div
+            class="grid gap-2 place-content-start bg-Neutral-700 absolute top-8 px-1.5 z-20"
+            id="days-list"
+          ></div>
+        </div>
+        <section class="hourly-forecast" id="hourly-data"></section>
+      </section>
     </article>
-    <section id="general-info-section"></section>
-    <!-- Insert daily forecast for the next 7 days here -->
-    <section id="daily-forecast-section"></section>
-    <!-- Insert hourly forecast for the selected day here -->
-    <section id="hourly-forecast-section" class="">
-      <div class="relative">
-        <button
-          class="flex items-center gap-2 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
-        >
-          Monday
-          <img src="/images/icon-dropdown.svg" alt="" />
-        </button>
-        <div
-          class="grid gap-2 place-content-start bg-Neutral-700 absolute top-8 px-1.5 z-20"
-          id="days-list"
-        ></div>
-      </div>
-      <section class="hourly-forecast" id="hourly-data"></section>
-    </section>
 
     <!-- <div class="attribution">
       Challenge by

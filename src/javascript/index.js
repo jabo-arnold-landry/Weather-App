@@ -73,6 +73,7 @@ form.addEventListener("submit", async (e) => {
   const { lat, lon } = await getLocation(input.value);
   if (!lon) {
     erroMessage.innerHTML = "no search results found !";
+    weatherDataSection.hidden = true;
     return;
   }
   weatherInformation(lat, lon);

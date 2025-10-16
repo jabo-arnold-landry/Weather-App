@@ -6,7 +6,8 @@ const hourlyForecastSection = document.querySelector(
 const daysDropDownMenu = hourlyForecastSection.querySelector("button");
 const daysList = document.querySelector("#days-list");
 const hourlDataSection = document.querySelector("#hourly-data");
-console.log(hourlDataSection);
+const HeroSection = document.querySelector("#location-info");
+import weatherIcon from "./iconsList.js";
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -16,7 +17,6 @@ const daysofWeek = [
   "saturday",
   "sunday",
 ];
-import weatherIcon from "./iconsList.js";
 
 function displayGeneralWeatherInformation(obj) {
   const docFragment = document.createDocumentFragment();
@@ -77,13 +77,6 @@ function extractingHoursForTheWeather(
   filteringHourlyData("monday", dailyChunks);
   return dailyChunks;
 }
-daysDropDownMenu.addEventListener("click", () => {
-  daysList.classList.toggle("hidden");
-});
-daysList.innerHTML = "";
-daysofWeek.forEach((day) => {
-  daysList.innerHTML += `<button>${day}</button>`;
-});
 function filteringHourlyData(day = "monday", obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
@@ -108,6 +101,28 @@ function filteringHourlyData(day = "monday", obj) {
   }
   hourlDataSection.append(docFragment);
 }
+function populatingHeroSectionWithData(obj) {
+  const { temperature, weatherCode, isDay, time, country, city } = obj;
+  let imgSrc = weatherIcon(weatherCode);
+  HeroSection.innerHTML = "";
+  HeroSection.innerHTML = `<div>
+    <strong>${city}, ${country}</strong>
+    <p>${time}</p>
+   </div>
+   <div class="">
+    <img src="${imgSrc}"alt="weather icon" class="size-1/4 sm:size-3/4"/>
+   <span>${temperature}<sup>o</sup></span>
+  </div>
+  `;
+}
+daysDropDownMenu.addEventListener("click", () => {
+  daysList.classList.toggle("hidden");
+});
+daysList.innerHTML = "";
+daysofWeek.forEach((day) => {
+  daysList.innerHTML += `<button>${day}</button>`;
+});
+
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     daysList.classList.toggle("hidden");
@@ -119,4 +134,5 @@ export {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
   extractingHoursForTheWeather,
+  populatingHeroSectionWithData,
 };

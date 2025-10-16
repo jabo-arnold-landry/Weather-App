@@ -2,6 +2,7 @@ import {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
   extractingHoursForTheWeather,
+  populatingHeroSectionWithData
 } from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
@@ -16,6 +17,7 @@ async function getLocation(location) {
     if (!data.results) {
       return "";
     }
+    console.log(data);
     return {
       country: data.results[0].country,
       city: data.results[0].name,
@@ -63,6 +65,12 @@ async function weatherInformation(lat, lon) {
       weatherData.hourly.temperature_2m
     );
     console.log(weatherData);
+    return {
+      temperature: weatherData.current.temperature_2m,
+      time: weatherData.current.time,
+      weatherCode: weatherData.current.weather_code,
+      isDay: weatherData.current.is_day,
+    };
   } catch (err) {
     console.log("something bad happened: ", err);
   }
@@ -70,7 +78,7 @@ async function weatherInformation(lat, lon) {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!input.value) return alert("not something we can do");
-  const { lat, lon } = await getLocation(input.value);
+  const { lat, lon, country, city } = await getLocation(input.value);
   if (!lon) {
     erroMessage.innerHTML = "no search results found !";
     weatherDataSection.hidden = true;
@@ -78,4 +86,9 @@ form.addEventListener("submit", async (e) => {
   }
   weatherInformation(lat, lon);
   weatherDataSection.hidden = false;
+  const { temperature, weatherCode, isDay, time } = await weatherInformation(
+    lat,
+    lon
+  );
+  populatingHeroSectionWithData({ temperature, weatherCode, isDay, time, country, city });
 });

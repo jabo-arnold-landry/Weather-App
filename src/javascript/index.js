@@ -7,7 +7,7 @@ import {
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
-const btn = document.querySelector("button");
+const btn = form.querySelector("button");
 const weatherDataSection = document.querySelector("#weather-section");
 async function getLocation(location) {
   try {
@@ -80,8 +80,13 @@ async function weatherInformation(lat, lon) {
   }
 }
 function loadingState(state) {
-  if (state) btn.textContent = "loading....";
-  console.log(btn.textContent)
+  if (state) {
+    btn.disabled = true;
+    btn.innerHTML = `<img src="/images/icon-loading.svg" class="animate-spin">`;
+    return;
+  }
+  btn.textContent = "Search";
+  btn.disabled = false;
 }
 
 form.addEventListener("submit", async (e) => {

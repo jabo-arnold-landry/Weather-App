@@ -2,14 +2,16 @@ import {
   displayGeneralWeatherInformation,
   sevenDaysForecastDisplay,
   extractingHoursForTheWeather,
-  populatingHeroSectionWithData
+  populatingHeroSectionWithData,
 } from "./cardsDisplay.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
+const btn = document.querySelector("button");
 const weatherDataSection = document.querySelector("#weather-section");
 async function getLocation(location) {
   try {
+    loadingState(true);
     const response = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`
     );
@@ -26,6 +28,8 @@ async function getLocation(location) {
     };
   } catch (err) {
     console.log("Somthing went wrong:", err);
+  } finally {
+    loadingState(false);
   }
 }
 async function weatherInformation(lat, lon) {
@@ -75,9 +79,15 @@ async function weatherInformation(lat, lon) {
     console.log("something bad happened: ", err);
   }
 }
+function loadingState(state) {
+  if (state) btn.textContent = "loading....";
+  console.log(btn.textContent)
+}
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!input.value) return alert("not something we can do");
+
   const { lat, lon, country, city } = await getLocation(input.value);
   if (!lon) {
     erroMessage.innerHTML = "no search results found !";
@@ -90,5 +100,12 @@ form.addEventListener("submit", async (e) => {
     lat,
     lon
   );
-  populatingHeroSectionWithData({ temperature, weatherCode, isDay, time, country, city });
+  populatingHeroSectionWithData({
+    temperature,
+    weatherCode,
+    isDay,
+    time,
+    country,
+    city,
+  });
 });

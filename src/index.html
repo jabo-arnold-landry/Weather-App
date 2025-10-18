@@ -88,18 +88,18 @@
       </div>
       <section class="result-section"></section>
     </main>
-    <article id="weather-section">
+    <article id="weather-section" hidden>
       <section
         class="bg-[url('/images/bg-today-small.svg')] bg-cover rounded-md bg-no-repeat bg-center mx-2 md:bg-[url('/images/bg-today-large.svg')]"
       >
         <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
         <div
-          class=""
+          class="block sm:flex justify-between items-center" 
           id="location-info"
         >
           <div class="grid place-content-center">
-            <strong>Kigali, Rwanda</strong>
-            <p>Tue,13/4/2040</p>
+            <strong class="text-2xl font-bold">Kigali, Rwanda</strong>
+            <p class="text-md font-light text-center sm:text-left">Tue,13/4/2040</p>
           </div>
           <div class="flex items-center justify-center">
             <img
@@ -107,7 +107,7 @@
               alt="weather icon"
               class="size-20 sm:size-28"
             />
-            <span class="text-4xl">20<sup>o</sup></span>
+            <span class="text-4xl sm:text-6xl">20<sup>o</sup></span>
           </div>
         </div>
       </section>

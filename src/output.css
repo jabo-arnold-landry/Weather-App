@@ -211,8 +211,14 @@
   .col-span-full {
     grid-column: 1 / -1;
   }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
+  }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
   }
   .mx-5 {
     margin-inline: calc(var(--spacing) * 5);
@@ -252,17 +258,9 @@
     width: calc(1/4 * 100%);
     height: calc(1/4 * 100%);
   }
-  .size-4 {
-    width: calc(var(--spacing) * 4);
-    height: calc(var(--spacing) * 4);
-  }
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
-  }
-  .size-10 {
-    width: calc(var(--spacing) * 10);
-    height: calc(var(--spacing) * 10);
   }
   .size-13 {
     width: calc(var(--spacing) * 13);
@@ -325,9 +323,6 @@
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
-  .gap-4 {
-    gap: calc(var(--spacing) * 4);
-  }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
   }
@@ -360,6 +355,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-md {
     border-radius: var(--radius-md);
   }
@@ -389,11 +387,23 @@
   .bg-\[url\(\'\/images\/bg-today-small\.svg\'\)\] {
     background-image: url('/images/bg-today-small.svg');
   }
+  .bg-contain {
+    background-size: contain;
+  }
   .bg-cover {
     background-size: cover;
   }
+  .bg-fixed {
+    background-attachment: fixed;
+  }
+  .bg-center {
+    background-position: center;
+  }
   .bg-top-right {
     background-position: right top;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
   }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
@@ -410,9 +420,6 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-5 {
-    padding-inline: calc(var(--spacing) * 5);
-  }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
@@ -421,12 +428,6 @@
   }
   .py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
-  }
-  .py-3 {
-    padding-block: calc(var(--spacing) * 3);
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
@@ -540,29 +541,9 @@
       display: flex;
     }
   }
-  .has-\[img\]\:bg-red-500 {
-    &:has(*:is(img)) {
-      background-color: var(--color-red-500);
-    }
-  }
-  .has-\[img\]\:bg-red-600 {
-    &:has(*:is(img)) {
-      background-color: var(--color-red-600);
-    }
-  }
   .has-\[img\]\:px-4 {
     &:has(*:is(img)) {
       padding-inline: calc(var(--spacing) * 4);
-    }
-  }
-  .has-\[img\]\:px-5 {
-    &:has(*:is(img)) {
-      padding-inline: calc(var(--spacing) * 5);
-    }
-  }
-  .has-\[img\]\:px-10 {
-    &:has(*:is(img)) {
-      padding-inline: calc(var(--spacing) * 10);
     }
   }
   .sm\:m-0 {
@@ -576,24 +557,38 @@
       height: calc(3/4 * 100%);
     }
   }
+  .sm\:size-10 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 10);
+      height: calc(var(--spacing) * 10);
+    }
+  }
+  .sm\:size-20 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 20);
+      height: calc(var(--spacing) * 20);
+    }
+  }
+  .sm\:size-28 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 28);
+      height: calc(var(--spacing) * 28);
+    }
+  }
+  .sm\:size-32 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 32);
+      height: calc(var(--spacing) * 32);
+    }
+  }
   .sm\:justify-between {
     @media (width >= 40rem) {
       justify-content: space-between;
     }
   }
-  .sm\:py-1 {
-    @media (width >= 40rem) {
-      padding-block: calc(var(--spacing) * 1);
-    }
-  }
   .md\:bg-\[url\(\'\/images\/bg-today-large\.svg\'\)\] {
     @media (width >= 48rem) {
       background-image: url('/images/bg-today-large.svg');
-    }
-  }
-  .md\:py-3 {
-    @media (width >= 48rem) {
-      padding-block: calc(var(--spacing) * 3);
     }
   }
   .\@xs\:mx-2\.5 {

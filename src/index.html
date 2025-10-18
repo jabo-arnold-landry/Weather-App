@@ -88,15 +88,28 @@
       </div>
       <section class="result-section"></section>
     </main>
-    <article id="weather-section" hidden>
+    <article id="weather-section">
       <section
-        class="bg-[url('/images/bg-today-small.svg')] bg-cover bg-top-right mx-5 md:bg-[url('/images/bg-today-large.svg')]"
+        class="bg-[url('/images/bg-today-small.svg')] bg-cover rounded-md bg-no-repeat bg-center mx-2 md:bg-[url('/images/bg-today-large.svg')]"
       >
         <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
         <div
-          class="flex flex-wrap justify-center sm:justify-between items-center"
+          class=""
           id="location-info"
-        ></div>
+        >
+          <div>
+            <strong>Kigali, Rwanda</strong>
+            <p>Tue,13/4/2040</p>
+          </div>
+          <div class="">
+            <img
+              src="/images/icon-sunny.webp"
+              alt="weather icon"
+              class="size-1/4 sm:size-28"
+            />
+            <span>20<sup>o</sup></span>
+          </div>
+        </div>
       </section>
       <!-- Insert temperature here -->
       <section id="general-info-section"></section>

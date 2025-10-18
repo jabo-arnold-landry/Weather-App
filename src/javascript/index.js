@@ -82,7 +82,11 @@ async function weatherInformation(lat, lon) {
 function loadingState(state) {
   if (state) {
     btn.disabled = true;
-    btn.innerHTML = `<img src="/images/icon-loading.svg" class="animate-spin">`;
+    btn.innerHTML += `<img
+                src="/images/icon-loading.svg"
+                alt="loading-effects-icon"
+                class="px-2 animate-spin"
+              />`;
     return;
   }
   btn.textContent = "Search";

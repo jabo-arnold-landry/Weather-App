@@ -89,14 +89,16 @@
       <section class="result-section"></section>
     </main>
     <article id="weather-section" hidden>
-      <section
-        class="bg-[url('/images/bg-today-small.svg')] bg-cover bg-top-right mx-5 md:bg-[url('/images/bg-today-large.svg')]"
+      <section 
+        class="bg-[url('/images/bg-today-small.svg')] bg-contain bg-no-repeat bg-center md:bg-[url('/images/bg-today-large.svg')] bg-cover bg-top-right mx-5"
       >
         <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
         <div
-          class="flex flex-wrap justify-center sm:justify-between items-center"
+          class="grid place-items-center sm:flex sm:justify-between mx-4"
           id="location-info"
-        ></div>
+        >
+        
+          
       </section>
       <!-- Insert temperature here -->
       <section id="general-info-section"></section>

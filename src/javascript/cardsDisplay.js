@@ -105,14 +105,20 @@ function populatingHeroSectionWithData(obj) {
   const { temperature, weatherCode, isDay, time, country, city } = obj;
   let imgSrc = weatherIcon(weatherCode);
   HeroSection.innerHTML = "";
-  HeroSection.innerHTML = `<div>
-    <strong>${city}, ${country}</strong>
-    <p>${time}</p>
-   </div>
-   <div class="">
-    <img src="${imgSrc}"alt="weather icon" class="size-1/4 sm:size-3/4"/>
-   <span>${temperature}<sup>o</sup></span>
-  </div>
+  HeroSection.innerHTML = `  <div class="grid place-content-center">
+            <strong class="text-2xl font-bold">${city}, ${country}</strong>
+            <p class="text-md font-light text-center sm:text-left">
+              ${time}
+            </p>
+          </div>
+           <div class="flex items-center py-4">
+            <img
+              src="${imgSrc}"
+              alt="weather icon"
+              class="size-20 sm:size-36"
+            />
+            <span class="text-4xl sm:text-6xl self-end">${temperature}<sup>o</sup></span>
+          </div>
   `;
 }
 daysDropDownMenu.addEventListener("click", () => {

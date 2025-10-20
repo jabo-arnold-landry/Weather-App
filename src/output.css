@@ -7,6 +7,9 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-400: oklch(70.4% 0.191 22.216);
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-red-600: oklch(57.7% 0.245 27.325);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-neutral-200: oklch(92.2% 0 0);
     --color-black: #000;
@@ -15,6 +18,8 @@
     --container-4xl: 56rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
@@ -23,6 +28,8 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-6xl: 3.75rem;
     --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
     --text-9xl: 8rem;
     --text-9xl--line-height: 1;
     --font-weight-light: 300;
@@ -40,6 +47,7 @@
     --color-Neutral-700: hsl(243, 23%, 24%);
     --color-Neutral-600: hsl(243, 23%, 30%);
     --color-Neutral-300: hsl(240, 6%, 70%);
+    --color-Neutral-200: hsl(250, 6%, 84%);
     --color-Blue-500: hsl(233, 67%, 56%);
     --color-Blue-700: hsl(248, 70%, 36%);
     --animate-pop: pop 1s ease-in-out 1;
@@ -230,6 +238,12 @@
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
   }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
+  }
+  .mx-5 {
+    margin-inline: calc(var(--spacing) * 5);
+  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -260,6 +274,10 @@
   .table {
     display: table;
   }
+  .size-1 {
+    width: calc(var(--spacing) * 1);
+    height: calc(var(--spacing) * 1);
+  }
   .size-1\/4 {
     width: calc(1/4 * 100%);
     height: calc(1/4 * 100%);
@@ -276,14 +294,39 @@
     width: calc(var(--spacing) * 20);
     height: calc(var(--spacing) * 20);
   }
+  .size-36 {
+    width: calc(var(--spacing) * 36);
+    height: calc(var(--spacing) * 36);
+  }
+  .size-42 {
+    width: calc(var(--spacing) * 42);
+    height: calc(var(--spacing) * 42);
+  }
+  .size-48 {
+    width: calc(var(--spacing) * 48);
+    height: calc(var(--spacing) * 48);
+  }
+  .size-422 {
+    width: calc(var(--spacing) * 422);
+    height: calc(var(--spacing) * 422);
+  }
   .w-full {
     width: 100%;
+  }
+  .max-w-2 {
+    max-width: calc(var(--spacing) * 2);
   }
   .max-w-2\/5 {
     max-width: calc(2/5 * 100%);
   }
   .min-w-fit {
     min-width: fit-content;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .animate-pop {
     animation: var(--animate-pop);
@@ -293,6 +336,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -305,6 +351,9 @@
   }
   .place-content-start {
     place-content: start;
+  }
+  .place-items-center {
+    place-items: center;
   }
   .items-center {
     align-items: center;
@@ -351,6 +400,9 @@
   .self-center {
     align-self: center;
   }
+  .self-end {
+    align-self: flex-end;
+  }
   .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -358,6 +410,10 @@
   }
   .rounded-md {
     border-radius: var(--radius-md);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-none {
     --tw-border-style: none;
@@ -390,8 +446,14 @@
   .bg-center {
     background-position: center;
   }
+  .bg-top-right {
+    background-position: right top;
+  }
   .bg-no-repeat {
     background-repeat: no-repeat;
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
   }
   .px-1\.5 {
     padding-inline: calc(var(--spacing) * 1.5);
@@ -458,12 +520,20 @@
   .capitalize {
     text-transform: capitalize;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
@@ -529,6 +599,16 @@
       }
     }
   }
+  .disabled\:cursor-wait {
+    &:disabled {
+      cursor: wait;
+    }
+  }
+  .disabled\:bg-Blue-500 {
+    &:disabled {
+      background-color: var(--color-Blue-500);
+    }
+  }
   .has-\[img\]\:flex {
     &:has(*:is(img)) {
       display: flex;
@@ -561,14 +641,37 @@
       height: calc(var(--spacing) * 28);
     }
   }
-  .sm\:bg-contain {
+  .sm\:size-36 {
     @media (width >= 40rem) {
-      background-size: contain;
+      width: calc(var(--spacing) * 36);
+      height: calc(var(--spacing) * 36);
+    }
+  }
+  .sm\:size-48 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 48);
+      height: calc(var(--spacing) * 48);
+    }
+  }
+  .sm\:justify-between {
+    @media (width >= 40rem) {
+      justify-content: space-between;
+    }
+  }
+  .sm\:bg-black {
+    @media (width >= 40rem) {
+      background-color: var(--color-black);
     }
   }
   .sm\:text-left {
     @media (width >= 40rem) {
       text-align: left;
+    }
+  }
+  .sm\:text-4xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
   }
   .sm\:text-6xl {
@@ -577,10 +680,22 @@
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
+  .sm\:text-7xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
   .sm\:text-9xl {
     @media (width >= 40rem) {
       font-size: var(--text-9xl);
       line-height: var(--tw-leading, var(--text-9xl--line-height));
+    }
+  }
+  .sm\:text-xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
     }
   }
   .md\:bg-\[url\(\'\/images\/bg-today-large\.svg\'\)\] {
@@ -603,21 +718,6 @@
       align-items: center;
     }
   }
-  .\@sm\:flex {
-    @container (width >= 24rem) {
-      display: flex;
-    }
-  }
-  .\@sm\:bg-black {
-    @container (width >= 24rem) {
-      background-color: var(--color-black);
-    }
-  }
-  .\@sm\:text-left {
-    @container (width >= 24rem) {
-      text-align: left;
-    }
-  }
 }
 @keyframes pop {
   from {
@@ -628,6 +728,26 @@
     transform: translateY(0);
     transition: all 0.4s ease-in-out 0ms;
   }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -722,6 +842,11 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-divide-y-reverse: 0;
       --tw-border-style: solid;

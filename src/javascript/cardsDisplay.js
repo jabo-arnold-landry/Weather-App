@@ -105,17 +105,19 @@ function populatingHeroSectionWithData(obj) {
   const { temperature, weatherCode, isDay, time, country, city } = obj;
   let imgSrc = weatherIcon(weatherCode);
   HeroSection.innerHTML = "";
-  HeroSection.innerHTML = ` <div class="grid place-content-center">
+  HeroSection.innerHTML = `  <div class="grid place-content-center">
             <strong class="text-2xl font-bold">${city}, ${country}</strong>
-            <p class="text-md font-light text-center sm:text-left">${time}</p>
+            <p class="text-md font-light text-center sm:text-left">
+              ${time}
+            </p>
           </div>
-          <div class="flex items-center justify-center">
+           <div class="flex items-center py-4">
             <img
               src="${imgSrc}"
               alt="weather icon"
-              class="size-20 sm:size-28"
+              class="size-20 sm:size-36"
             />
-            <span class="text-4xl sm:text-6xl">${temperature}<sup>o</sup></span>
+            <span class="text-4xl sm:text-6xl self-end">${temperature}<sup>o</sup></span>
           </div>
   `;
 }

@@ -25,9 +25,10 @@ function displayGeneralWeatherInformation(obj) {
     const div = document.createElement("div");
     const weatherValue = obj[keys][0];
     const valueUnit = obj[keys][1];
+    div.classList.add("bg-Neutral-700", "pr-8", "pl-5", "mx-2", "rounded-md");
     div.innerHTML += `
-      <h2>${keys}</h2
-      <p>${weatherValue} ${valueUnit}</p>
+      <h2 class="text-md text-Neutral-300">${keys}</h2
+       <p class="text-lg text-Neutral-0 font-bold">${weatherValue} ${valueUnit}</p>
     `;
     docFragment.append(div);
   }

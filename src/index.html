@@ -90,7 +90,7 @@
     </main>
     <article id="weather-section" hidden>
       <section
-        class="bg-[url('/images/bg-today-small.svg')] bg-contain bg-no-repeat bg-center md:bg-[url('/images/bg-today-large.svg')]md:bg-cover md:bg-top-right mx-5"
+        class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat sm:bg-[url('/images/bg-today-large.svg')]"
       >
         <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
         <div
@@ -99,7 +99,10 @@
         ></div>
       </section>
       <!-- Insert temperature here -->
-      <section id="general-info-section" class="flex"></section>
+      <section
+        id="general-info-section"
+        class="grid grid-cols-2 gap-y-3 gap-x-0.5 sm:grid-cols-3 md:grid-cols-4"
+      ></section>
       <!-- Insert daily forecast for the next 7 days here -->
       <section id="daily-forecast-section"></section>
       <!-- Insert hourly forecast for the selected day here -->

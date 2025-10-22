@@ -89,7 +89,7 @@ function filteringHourlyData(day = "monday", obj) {
     const div = document.createElement("div");
     div.classList.add("flex", "items-center", "justify-between");
     div.innerHTML = `
-          <div class="flex items-center">
+          <div class="flex items-center mx-4">
             <img
               src="${hourIcon}"
               alt="weather code"

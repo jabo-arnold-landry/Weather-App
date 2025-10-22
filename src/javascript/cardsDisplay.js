@@ -48,10 +48,18 @@ function sevenDaysForecastDisplay(
     const maxTempForecast = maxWeekForecasts[i];
     const minTempForecast = minWeekForecasts[i];
     const imgIcon = weatherIcon(weatherCode[i]);
+    div.classList.add(
+      "grid",
+      "gap-1",
+      "bg-Neutral-700",
+      "rounded-lg",
+      "px-2",
+      "py-3"
+    );
     div.innerHTML = `
-    <h3>${daysofWeek[i]}</h3>
-    <img src='${imgIcon}' alt="weather status image" >
-    <section>
+    <h3 class="capitalize font-bold text-md">${daysofWeek[i]}</h3>
+    <img src='${imgIcon}' alt="weather status image" class="size-20" >
+    <section class="flex gap-2.5 px-1">
       <span>${maxTempForecast}<sup>o</sup></span>
       <span>${minTempForecast}<sup>o</sup></span>
     </section>`;

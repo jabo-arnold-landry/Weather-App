@@ -22,4 +22,8 @@ const icons = {
 function weatherIcon(weatherCode) {
   return icons[weatherCode].icon;
 }
+export function timeTransformation(time){
+  const currTime = time.split("T");
+  console.log(currTime)
+}
 export default weatherIcon;

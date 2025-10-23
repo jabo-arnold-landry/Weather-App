@@ -140,9 +140,10 @@ daysofWeek.forEach((day) => {
 
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
-    daysList.classList.toggle("hidden");
     filteringHourlyData(e.target.textContent, dailyChunks);
     daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
+    daysList.hidden = true ? false : true;
+    
   }
 });
 export {

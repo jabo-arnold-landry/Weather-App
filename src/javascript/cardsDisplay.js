@@ -8,6 +8,7 @@ const daysList = document.querySelector("#days-list");
 const hourlDataSection = document.querySelector("#hourly-data");
 const HeroSection = document.querySelector("#location-info");
 import weatherIcon from "./iconsList.js";
+import {timeTransformation} from "./iconsList.js";
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -106,6 +107,7 @@ function filteringHourlyData(day = "monday", obj) {
             <time datetime="now">${time[i]}</time>
           </div>
           <p>${temperature[i]}<sup>o</sup></p>`;
+          console.log(timeTransformation(time[i]));
     docFragment.append(div);
   }
   hourlDataSection.append(docFragment);

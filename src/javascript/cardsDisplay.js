@@ -29,7 +29,7 @@ function displayGeneralWeatherInformation(obj) {
     div.classList.add("bg-Neutral-700", "pr-8", "pl-5", "mx-2", "rounded-md");
     div.innerHTML += `
       <h2 class="text-md text-Neutral-300">${keys}</h2
-       <p class="text-lg text-Neutral-0 font-bold">${weatherValue} ${valueUnit}</p>
+       <p class="text-lg text-Neutral-0 font-bold">${parseInt(weatherValue)} ${valueUnit}</p>
     `;
     docFragment.append(div);
   }
@@ -61,8 +61,8 @@ function sevenDaysForecastDisplay(
     <h3 class="capitalize font-bold text-md">${daysofWeek[i]}</h3>
     <img src='${imgIcon}' alt="weather status image" class="size-20" >
     <section class="flex gap-2.5 px-1">
-      <span>${maxTempForecast}<sup>o</sup></span>
-      <span>${minTempForecast}<sup>o</sup></span>
+      <span>${parseInt(maxTempForecast)}<sup>o</sup></span>
+      <span>${parseInt(minTempForecast)}<sup>o</sup></span>
     </section>`;
     docFragment.append(div);
   }
@@ -115,7 +115,7 @@ function filteringHourlyData(day = "monday", obj) {
             />
             <time datetime="now">${time[i]}</time>
           </div>
-          <p>${temperature[i]}<sup>o</sup></p>`;
+          <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
           console.log(timeTransformation(time[i]));
     docFragment.append(div);
   }
@@ -137,7 +137,7 @@ function populatingHeroSectionWithData(obj) {
               alt="weather icon"
               class="size-20 sm:size-36"
             />
-            <span class="text-4xl sm:text-6xl self-end">${temperature}<sup>o</sup></span>
+            <span class="text-4xl sm:text-6xl self-end">${parseInt(temperature)}<sup>o</sup></span>
           </div>
   `;
 }

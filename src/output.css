@@ -431,6 +431,9 @@
   .bg-Blue-500 {
     background-color: var(--color-Blue-500);
   }
+  .bg-Neutral-600 {
+    background-color: var(--color-Neutral-600);
+  }
   .bg-Neutral-700 {
     background-color: var(--color-Neutral-700);
   }

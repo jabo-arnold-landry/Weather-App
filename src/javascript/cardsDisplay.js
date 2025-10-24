@@ -100,7 +100,7 @@ function filteringHourlyData(day = "monday", obj) {
       "flex",
       "items-center",
       "justify-between",
-      "bg-Neutral-700",
+      "bg-Neutral-600",
       "mt-4",
       "mx-1",
       "px-3",

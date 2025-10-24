@@ -96,13 +96,22 @@ function filteringHourlyData(day = "monday", obj) {
     hourlDataSection.innerHTML = "";
     const hourIcon = weatherIcon(weatherCode[i]);
     const div = document.createElement("div");
-    div.classList.add("flex", "items-center", "justify-between");
+    div.classList.add(
+      "flex",
+      "items-center",
+      "justify-between",
+      "bg-Neutral-700",
+      "mt-4",
+      "mx-1",
+      "px-3",
+      "rounded-md"
+    );
     div.innerHTML = `
-          <div class="flex items-center mx-4">
+          <div class="flex items-center gap-2">
             <img
               src="${hourIcon}"
               alt="weather code"
-              class="size-13 inlin-block"
+              class="size-12 inlin-block"
             />
             <time datetime="now">${time[i]}</time>
           </div>

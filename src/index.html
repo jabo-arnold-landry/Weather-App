@@ -109,10 +109,14 @@
         class="flex flex-wrap gap-2.5 mx-1.5"
       ></section>
       <!-- Insert hourly forecast for the selected day here -->
-      <section id="hourly-forecast-section" class="">
-        <div class="relative">
+      <section
+        id="hourly-forecast-section"
+        class="bg-Neutral-700 py-3 px-2 mx-2 rounded-md"
+      >
+        <div class="relative flex justify-between px-2">
+          <strong class="font-light">Hourly forecast</strong>
           <button
-            class="flex items-center gap-2 cursor-pointer bg-Neutral-800 px-2 py-1 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
+            class="flex items-center gap-2 cursor-pointer bg-Neutral-600 px-4 py-0.5 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150"
           >
             Monday
             <img src="/images/icon-dropdown.svg" alt="" />
@@ -122,20 +126,7 @@
             id="days-list"
           ></div>
         </div>
-        <section class="bg-Neutral-700" id="hourly-data">
-          <div
-            class="flex items-center justify-between bg-Neutral-700 mt-4 mx-1 px-3 rounded-md"
-          >
-            <div class="flex items-center">
-              <img
-                src="/images/icon-partly-cloudy.webp"
-                alt="weather code"
-                class="size-12 inlin-block"
-              />
-              <time datetime="now">3PM</time>
-            </div>
-            <p>38<sup>o</sup></p>
-          </div>
+        <section class="hourly-forecast" id="hourly-data">
         </section>
       </section>
     </article>

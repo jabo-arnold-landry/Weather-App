@@ -254,6 +254,9 @@
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
@@ -352,6 +355,9 @@
   .items-center {
     align-items: center;
   }
+  .justify-around {
+    justify-content: space-around;
+  }
   .justify-between {
     justify-content: space-between;
   }
@@ -414,6 +420,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -475,6 +484,9 @@
   }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
+  }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
@@ -573,6 +585,16 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
+  .first-letter\:capitalize {
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  .first-letter\:uppercase {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
   .placeholder\:truncate {
     &::placeholder {
       overflow: hidden;
@@ -583,6 +605,11 @@
   .placeholder\:px-2 {
     &::placeholder {
       padding-inline: calc(var(--spacing) * 2);
+    }
+  }
+  .first\:uppercase {
+    &:first-child {
+      text-transform: uppercase;
     }
   }
   .empty\:hidden {

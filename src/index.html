@@ -88,48 +88,52 @@
       </div>
       <section class="result-section"></section>
     </main>
-    <article id="weather-section" hidden>
-      <section
-        class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat sm:bg-[url('/images/bg-today-large.svg')]"
-      >
-        <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
-        <div
-          class="grid place-items-center sm:flex sm:justify-between mx-4"
-          id="location-info"
-        ></div>
-      </section>
-      <!-- Insert temperature here -->
-      <section
-        id="general-info-section"
-        class="grid grid-cols-2 gap-y-3 gap-x-0.5 sm:grid-cols-3 md:grid-cols-4"
-      ></section>
-      <!-- Insert daily forecast for the next 7 days here -->
-      <section
-        id="daily-forecast-section"
-        class="flex flex-wrap gap-2.5 mx-1.5"
-      ></section>
-      <!-- Insert hourly forecast for the selected day here -->
-      <section
-        id="hourly-forecast-section"
-        class="bg-Neutral-700 py-3 px-2 mx-2 rounded-md"
-      >
-        <div class="flex justify-between px-2">
-          <strong class="font-light">Hourly forecast</strong>
-          <div class="relative">
-            <button
-              class="flex items-center gap-2 cursor-pointer bg-Neutral-600 px-4 py-0.5 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150 capitalize"
-            >
-              Monday
-              <img src="/images/icon-dropdown.svg" alt="drop-down-icon" />
-            </button>
-            <div
-              class="hidden grid gap-2 bg-Neutral-700 absolute top-7 px-4 py-1.5 z-20 rounded-md empty:hidden"
-              id="days-list"
-            ></div>
+    <article id="weather-section" class="block sm:flex gap-3 justify-center" hidden>
+      <div class="section-one">
+        <section
+          class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat sm:bg-[url('/images/bg-today-large.svg')]"
+        >
+          <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
+          <div
+            class="grid place-items-center sm:flex sm:justify-between mx-4"
+            id="location-info"
+          ></div>
+        </section>
+        <!-- Insert temperature here -->
+        <section
+          id="general-info-section"
+          class="grid grid-cols-2 gap-y-3 gap-x-0.5 sm:grid-cols-3 md:grid-cols-4"
+        ></section>
+        <!-- Insert daily forecast for the next 7 days here -->
+        <section
+          id="daily-forecast-section"
+          class="flex flex-wrap gap-2.5 mx-1.5"
+        ></section>
+      </div>
+      <div class="second-section">
+        <!-- Insert hourly forecast for the selected day here -->
+        <section
+          id="hourly-forecast-section"
+          class="bg-Neutral-700 py-3 px-2 mx-2 rounded-md"
+        >
+          <div class="flex justify-between px-2">
+            <strong class="font-light">Hourly forecast</strong>
+            <div class="relative">
+              <button
+                class="flex items-center gap-2 cursor-pointer bg-Neutral-600 px-4 py-0.5 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150 capitalize"
+              >
+                Monday
+                <img src="/images/icon-dropdown.svg" alt="drop-down-icon" />
+              </button>
+              <div
+                class="hidden grid gap-2 bg-Neutral-700 absolute top-7 px-4 py-1.5 z-20 rounded-md empty:hidden"
+                id="days-list"
+              ></div>
+            </div>
           </div>
-        </div>
-        <section class="hourly-forecast" id="hourly-data"></section>
-      </section>
+          <section class="hourly-forecast" id="hourly-data"></section>
+        </section>
+      </div>
     </article>
 
     <!-- <div class="attribution">

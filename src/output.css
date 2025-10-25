@@ -7,8 +7,8 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-red-700: oklch(50.5% 0.213 27.518);
     --color-red-900: oklch(39.6% 0.141 25.723);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-neutral-200: oklch(92.2% 0 0);
@@ -203,8 +203,20 @@
   .relative {
     position: relative;
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-2 {
     top: calc(var(--spacing) * 2);
+  }
+  .top-3 {
+    top: calc(var(--spacing) * 3);
+  }
+  .top-6 {
+    top: calc(var(--spacing) * 6);
+  }
+  .top-7 {
+    top: calc(var(--spacing) * 7);
   }
   .top-8 {
     top: calc(var(--spacing) * 8);
@@ -224,6 +236,9 @@
   .col-span-full {
     grid-column: 1 / -1;
   }
+  .float-right {
+    float: right;
+  }
   .mx-1 {
     margin-inline: calc(var(--spacing) * 1);
   }
@@ -239,23 +254,8 @@
   .mx-4 {
     margin-inline: calc(var(--spacing) * 4);
   }
-  .my-0 {
-    margin-block: calc(var(--spacing) * 0);
-  }
-  .my-0\.5 {
-    margin-block: calc(var(--spacing) * 0.5);
-  }
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
-  }
-  .my-9 {
-    margin-block: calc(var(--spacing) * 9);
-  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
-  }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
   }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
@@ -288,17 +288,9 @@
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
   }
-  .size-10 {
-    width: calc(var(--spacing) * 10);
-    height: calc(var(--spacing) * 10);
-  }
   .size-12 {
     width: calc(var(--spacing) * 12);
     height: calc(var(--spacing) * 12);
-  }
-  .size-13 {
-    width: calc(var(--spacing) * 13);
-    height: calc(var(--spacing) * 13);
   }
   .size-20 {
     width: calc(var(--spacing) * 20);
@@ -346,6 +338,9 @@
   .place-content-center {
     place-content: center;
   }
+  .place-content-end {
+    place-content: end;
+  }
   .place-content-start {
     place-content: start;
   }
@@ -354,9 +349,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .justify-around {
-    justify-content: space-around;
   }
   .justify-between {
     justify-content: space-between;
@@ -420,9 +412,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
-  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -455,11 +444,8 @@
   .bg-green-500 {
     background-color: var(--color-green-500);
   }
-  .bg-red-500 {
-    background-color: var(--color-red-500);
-  }
-  .bg-red-900 {
-    background-color: var(--color-red-900);
+  .bg-red-700 {
+    background-color: var(--color-red-700);
   }
   .bg-\[url\(\'\/images\/bg-today-small\.svg\'\)\] {
     background-image: url('/images/bg-today-small.svg');
@@ -482,8 +468,14 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
+  }
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
@@ -585,16 +577,6 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
-  .first-letter\:capitalize {
-    &::first-letter {
-      text-transform: capitalize;
-    }
-  }
-  .first-letter\:uppercase {
-    &::first-letter {
-      text-transform: uppercase;
-    }
-  }
   .placeholder\:truncate {
     &::placeholder {
       overflow: hidden;
@@ -605,11 +587,6 @@
   .placeholder\:px-2 {
     &::placeholder {
       padding-inline: calc(var(--spacing) * 2);
-    }
-  }
-  .first\:uppercase {
-    &:first-child {
-      text-transform: uppercase;
     }
   }
   .empty\:hidden {
@@ -638,6 +615,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-Blue-700);
+      }
+    }
+  }
+  .hover\:bg-Neutral-300 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-Neutral-300);
       }
     }
   }

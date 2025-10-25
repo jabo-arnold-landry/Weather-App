@@ -113,18 +113,20 @@
         id="hourly-forecast-section"
         class="bg-Neutral-700 py-3 px-2 mx-2 rounded-md"
       >
-        <div class="relative flex justify-between px-2">
+        <div class="flex justify-between px-2">
           <strong class="font-light">Hourly forecast</strong>
-          <button
-            class="flex items-center gap-2 cursor-pointer bg-Neutral-600 px-4 py-0.5 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150 capitalize"
-          >
-            Monday
-            <img src="/images/icon-dropdown.svg" alt="" />
-          </button>
-          <div
-            class="hidden grid gap-2 place-content-start bg-Neutral-700 absolute top-8 px-1.5 z-20"
-            id="days-list"
-          ></div>
+          <div class="relative">
+            <button
+              class="flex items-center gap-2 cursor-pointer bg-Neutral-600 px-4 py-0.5 rounded-md group hover:bg-Neutral-600 transition-colors duration-300 ease-in-out delay-150 capitalize"
+            >
+              Monday
+              <img src="/images/icon-dropdown.svg" alt="" />
+            </button>
+            <div
+              class="grid gap-2 bg-Neutral-700 absolute top-7 px-4 py-1.5 z-20 rounded-md"
+              id="days-list"
+            ></div>
+          </div>
         </div>
         <section class="hourly-forecast" id="hourly-data"></section>
       </section>

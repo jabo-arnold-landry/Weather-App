@@ -8,7 +8,7 @@ const daysList = document.querySelector("#days-list");
 const hourlDataSection = document.querySelector("#hourly-data");
 const HeroSection = document.querySelector("#location-info");
 import weatherIcon from "./iconsList.js";
-import {timeTransformation} from "./iconsList.js";
+import { timeTransformation } from "./iconsList.js";
 const daysofWeek = [
   "monday",
   "tuesday",
@@ -29,7 +29,9 @@ function displayGeneralWeatherInformation(obj) {
     div.classList.add("bg-Neutral-700", "pr-8", "pl-5", "mx-2", "rounded-md");
     div.innerHTML += `
       <h2 class="text-md text-Neutral-300">${keys}</h2
-       <p class="text-lg text-Neutral-0 font-bold">${parseInt(weatherValue)} ${valueUnit}</p>
+       <p class="text-lg text-Neutral-0 font-bold">${parseInt(
+         weatherValue
+       )} ${valueUnit}</p>
     `;
     docFragment.append(div);
   }
@@ -91,6 +93,10 @@ function filteringHourlyData(day = "monday", obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
   daysList.classList.toggle("hidden");
+  daysList.innerHTML = "";
+  daysofWeek.forEach((day) => {
+    daysList.innerHTML += `<button class="capitalize hover:bg-Neutral-600 hover:w-full cursor-pointer">${day}</button>`;
+  });
   console.log([weatherCode, time, temperature]);
   for (let i = 0; i < 7; i++) {
     hourlDataSection.innerHTML = "";
@@ -116,7 +122,7 @@ function filteringHourlyData(day = "monday", obj) {
             <time datetime="now">${time[i]}</time>
           </div>
           <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
-          console.log(timeTransformation(time[i]));
+    console.log(timeTransformation(time[i]));
     docFragment.append(div);
   }
   hourlDataSection.append(docFragment);
@@ -137,16 +143,14 @@ function populatingHeroSectionWithData(obj) {
               alt="weather icon"
               class="size-20 sm:size-36"
             />
-            <span class="text-4xl sm:text-6xl self-end">${parseInt(temperature)}<sup>o</sup></span>
+            <span class="text-4xl sm:text-6xl self-end">${parseInt(
+              temperature
+            )}<sup>o</sup></span>
           </div>
   `;
 }
 daysDropDownMenu.addEventListener("click", () => {
   daysList.classList.toggle("hidden");
-});
-daysList.innerHTML = "";
-daysofWeek.forEach((day) => {
-  daysList.innerHTML += `<button>${day}</button>`;
 });
 
 daysList.addEventListener("click", (e) => {
@@ -154,7 +158,6 @@ daysList.addEventListener("click", (e) => {
     filteringHourlyData(e.target.textContent, dailyChunks);
     daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
     daysList.hidden = true ? false : true;
-    
   }
 });
 export {

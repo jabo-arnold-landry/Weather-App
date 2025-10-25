@@ -296,6 +296,9 @@
     width: calc(var(--spacing) * 20);
     height: calc(var(--spacing) * 20);
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
   }
@@ -611,6 +614,13 @@
       outline-color: var(--color-Neutral-300);
     }
   }
+  .hover\:w-full {
+    &:hover {
+      @media (hover: hover) {
+        width: 100%;
+      }
+    }
+  }
   .hover\:bg-Blue-700 {
     &:hover {
       @media (hover: hover) {
@@ -629,6 +639,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-Neutral-600);
+      }
+    }
+  }
+  .hover\:px-2 {
+    &:hover {
+      @media (hover: hover) {
+        padding-inline: calc(var(--spacing) * 2);
       }
     }
   }

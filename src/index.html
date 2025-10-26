@@ -88,16 +88,20 @@
       </div>
       <section class="result-section"></section>
     </main>
-    <article id="weather-section" class="block sm:flex gap-3 justify-center" hidden>
+    <article
+      id="weather-section"
+      class="grid place-content-center sm:flex md:grid-cols-2"
+    >
       <div class="section-one">
         <section
-          class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat sm:bg-[url('/images/bg-today-large.svg')]"
+          class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat bg-cover md:bg-[url('/images/bg-today-large.svg')] md:bg-[100%] mx-4"
         >
-          <!-- <img src="/images/bg-today-large.svg" alt="background" class="" /> -->
           <div
             class="grid place-items-center sm:flex sm:justify-between mx-4"
             id="location-info"
-          ></div>
+          >
+          
+          </div>
         </section>
         <!-- Insert temperature here -->
         <section

@@ -143,7 +143,7 @@ function populatingHeroSectionWithData(obj) {
               alt="weather icon"
               class="size-20 sm:size-36"
             />
-            <span class="text-4xl sm:text-6xl self-end">${parseInt(
+            <span class="text-4xl sm:text-6xl">${parseInt(
               temperature
             )}<sup>o</sup></span>
           </div>

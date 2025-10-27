@@ -22,8 +22,14 @@ const icons = {
 function weatherIcon(weatherCode) {
   return icons[weatherCode].icon;
 }
-export function timeTransformation(time){
+export function timeTransformation(time) {
   const currTime = time.split("T");
-  console.log(currTime)
+  let date = new Date(currTime[0]).toLocaleString("en-US", {
+    weekday: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return {date}
 }
 export default weatherIcon;

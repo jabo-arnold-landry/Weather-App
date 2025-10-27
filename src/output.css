@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-700: oklch(50.5% 0.213 27.518);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-neutral-200: oklch(92.2% 0 0);
     --color-white: #fff;
@@ -28,7 +27,6 @@
     --radius-lg: 0.5rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-spin: spin 1s linear infinite;
-    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -253,9 +251,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
-  .block {
-    display: block;
-  }
   .contents {
     display: contents;
   }
@@ -289,17 +284,11 @@
   .max-w-2\/5 {
     max-width: calc(2/5 * 100%);
   }
-  .max-w-full {
-    max-width: 100%;
-  }
   .min-w-fit {
     min-width: fit-content;
   }
   .animate-pop {
     animation: var(--animate-pop);
-  }
-  .animate-pulse {
-    animation: var(--animate-pulse);
   }
   .animate-spin {
     animation: var(--animate-spin);
@@ -376,9 +365,6 @@
   .self-center {
     align-self: center;
   }
-  .self-end {
-    align-self: flex-end;
-  }
   .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -409,23 +395,14 @@
   .bg-Neutral-900 {
     background-color: var(--color-Neutral-900);
   }
-  .bg-\[im\] {
-    background-color: im;
-  }
   .bg-green-500 {
     background-color: var(--color-green-500);
   }
   .bg-\[url\(\'\/images\/bg-today-small\.svg\'\)\] {
     background-image: url('/images/bg-today-small.svg');
   }
-  .bg-contain {
-    background-size: contain;
-  }
   .bg-cover {
     background-size: cover;
-  }
-  .bg-fixed {
-    background-attachment: fixed;
   }
   .bg-no-repeat {
     background-repeat: no-repeat;
@@ -442,17 +419,8 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-5 {
-    padding-inline: calc(var(--spacing) * 5);
-  }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
-  }
-  .px-9 {
-    padding-inline: calc(var(--spacing) * 9);
-  }
-  .px-10 {
-    padding-inline: calc(var(--spacing) * 10);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
@@ -637,11 +605,6 @@
       height: calc(var(--spacing) * 36);
     }
   }
-  .sm\:grid-cols-2 {
-    @media (width >= 40rem) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
   .sm\:grid-cols-3 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -650,41 +613,6 @@
   .sm\:justify-between {
     @media (width >= 40rem) {
       justify-content: space-between;
-    }
-  }
-  .sm\:bg-\[url\] {
-    @media (width >= 40rem) {
-      background-color: url;
-    }
-  }
-  .sm\:bg-\[url\(\'\/im\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('/im');
-    }
-  }
-  .sm\:bg-\[url\(\'\/ima\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('/ima');
-    }
-  }
-  .sm\:bg-\[url\(\'\/images\/\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('/images/');
-    }
-  }
-  .sm\:bg-\[url\(\'\/images\/bg\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('/images/bg');
-    }
-  }
-  .sm\:bg-\[url\(\'\/images\/bg-today-large\.svg\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('/images/bg-today-large.svg');
-    }
-  }
-  .sm\:bg-contain {
-    @media (width >= 40rem) {
-      background-size: contain;
     }
   }
   .sm\:text-left {
@@ -698,24 +626,9 @@
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
-  .md\:col-span-2 {
-    @media (width >= 48rem) {
-      grid-column: span 2 / span 2;
-    }
-  }
-  .md\:grid {
-    @media (width >= 48rem) {
-      display: grid;
-    }
-  }
   .md\:grid-cols-2 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .md\:grid-cols-4 {
@@ -723,19 +636,9 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
-  .md\:place-content-center {
-    @media (width >= 48rem) {
-      place-content: center;
-    }
-  }
   .md\:bg-\[url\(\'\/images\/bg-today-large\.svg\'\)\] {
     @media (width >= 48rem) {
       background-image: url('/images/bg-today-large.svg');
-    }
-  }
-  .md\:bg-contain {
-    @media (width >= 48rem) {
-      background-size: contain;
     }
   }
   .md\:bg-\[100\%\] {
@@ -857,11 +760,6 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
   }
 }
 @layer properties {

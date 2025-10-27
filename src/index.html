@@ -90,10 +90,10 @@
     </main>
     <article
       id="weather-section"
-      class="grid place-content-center sm:flex md:grid-cols-2"
+      class="grid gap-2.5 place-content-center sm:flex md:grid-cols-2 md:place-items-center md:gap-4"
       hidden
     >
-      <div class="section-one">
+      <div class="grid gap-3 place-content-center mx-1.5">
         <section
           class="bg-[url('/images/bg-today-small.svg')] bg-no-repeat bg-cover md:bg-[url('/images/bg-today-large.svg')] md:bg-[100%] mx-4"
         >
@@ -103,11 +103,13 @@
           ></div>
         </section>
         <!-- Insert temperature here -->
+        <h2>temperature</h2>
         <section
           id="general-info-section"
           class="grid grid-cols-2 gap-y-3 gap-x-0.5 sm:grid-cols-3 md:grid-cols-4"
         ></section>
         <!-- Insert daily forecast for the next 7 days here -->
+        <h2>daily forecast</h2>
         <section
           id="daily-forecast-section"
           class="flex flex-wrap gap-2.5 mx-1.5"

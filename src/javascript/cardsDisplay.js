@@ -129,12 +129,13 @@ function filteringHourlyData(day = "monday", obj) {
 }
 function populatingHeroSectionWithData(obj) {
   const { temperature, weatherCode, isDay, time, country, city } = obj;
+  let {date} = timeTransformation(time);
   let imgSrc = weatherIcon(weatherCode);
   HeroSection.innerHTML = "";
   HeroSection.innerHTML = `  <div class="grid place-content-center">
             <strong class="text-2xl font-bold">${city}, ${country}</strong>
             <p class="text-md font-light text-center sm:text-left">
-              ${time}
+              ${date}
             </p>
           </div>
            <div class="flex items-center py-4">

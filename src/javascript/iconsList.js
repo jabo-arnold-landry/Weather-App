@@ -30,6 +30,7 @@ export function timeTransformation(time) {
     month: "long",
     day: "numeric",
   });
-  return {date}
+  let hour = currTime[1];
+  return {date, hour}
 }
 export default weatherIcon;

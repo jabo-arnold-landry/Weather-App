@@ -76,6 +76,7 @@ function extractingHoursForTheWeather(
   hourlyWeatherCode,
   hourlyTemperature
 ) {
+  console.log(hourlyForecast);
   for (let i = 0; i < 7; i++) {
     const startIndex = i * 24 + 15; // getting hours at 3pm
     const endIndex = i * 24 + 22; //getting hours at 10pm
@@ -99,6 +100,7 @@ function filteringHourlyData(day = "monday", obj) {
   });
   console.log([weatherCode, time, temperature]);
   for (let i = 0; i < 7; i++) {
+    let { hour } = timeTransformation(time[i]);
     hourlDataSection.innerHTML = "";
     const hourIcon = weatherIcon(weatherCode[i]);
     const div = document.createElement("div");
@@ -119,17 +121,16 @@ function filteringHourlyData(day = "monday", obj) {
               alt="weather code"
               class="size-12 inlin-block"
             />
-            <time datetime="now">${time[i]}</time>
+            <time datetime="now">${hour}</time>
           </div>
           <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
-    console.log(timeTransformation(time[i]));
     docFragment.append(div);
   }
   hourlDataSection.append(docFragment);
 }
 function populatingHeroSectionWithData(obj) {
   const { temperature, weatherCode, isDay, time, country, city } = obj;
-  let {date} = timeTransformation(time);
+  let { date } = timeTransformation(time);
   let imgSrc = weatherIcon(weatherCode);
   HeroSection.innerHTML = "";
   HeroSection.innerHTML = `  <div class="grid place-content-center">

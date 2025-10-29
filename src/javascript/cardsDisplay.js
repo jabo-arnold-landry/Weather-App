@@ -76,15 +76,16 @@ function extractingHoursForTheWeather(
   hourlyWeatherCode,
   hourlyTemperature
 ) {
-  console.log(hourlyForecast);
+  const hoursOnly = hourlyForecast.map((element) => {
+    return element.split("T")[1];
+  });
+  const currHour = `${new Date().getHours()}:00`;
+  const currHourIndex = hoursOnly.findIndex((hour) => hour === currHour);
   for (let i = 0; i < 7; i++) {
-    const startIndex = i * 24 + 15; // getting hours at 3pm
-    const endIndex = i * 24 + 22; //getting hours at 10pm
-
     dailyChunks[daysofWeek[i]] = {
-      time: hourlyForecast.slice(startIndex, endIndex),
-      weatherCode: hourlyWeatherCode.slice(startIndex, endIndex),
-      temperature: hourlyTemperature.slice(startIndex, endIndex),
+      time: hoursOnly.slice(currHourIndex, currHourIndex + 9),
+      weatherCode: hourlyWeatherCode.slice(currHourIndex, currHourIndex + 9),
+      temperature: hourlyTemperature.slice(currHourIndex, currHourIndex + 9),
     };
   }
   filteringHourlyData("monday", dailyChunks);
@@ -121,7 +122,7 @@ function filteringHourlyData(day = "monday", obj) {
               alt="weather code"
               class="size-12 inlin-block"
             />
-            <time datetime="now">${hour}</time>
+            <time datetime="now">${time[i]}</time>
           </div>
           <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
     docFragment.append(div);

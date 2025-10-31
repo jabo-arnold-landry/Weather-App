@@ -9,6 +9,17 @@ const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
 const btn = form.querySelector("button");
 const weatherDataSection = document.querySelector("#weather-section");
+const searchSection = document.querySelector("main");
+const apiErrorSection = document.querySelector("#api-error");
+let isOnline = navigator.onLine;
+function isUserOnline() {
+  if (!isOnline) {
+    searchSection.hidden = true;
+    apiErrorSection.hidden = false;
+    return;
+  }
+}
+isUserOnline();
 async function getLocation(location) {
   try {
     loadingState(true);
@@ -28,6 +39,7 @@ async function getLocation(location) {
     };
   } catch (err) {
     console.log("Somthing went wrong:", err);
+    isUserOnline();
   } finally {
     loadingState(false);
   }

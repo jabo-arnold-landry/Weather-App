@@ -79,7 +79,19 @@ function extractingHoursForTheWeather(
   const hoursOnly = hourlyForecast.map((element) => {
     return element.split("T")[1];
   });
-  const currHour = `${new Date().getHours()}:00`;
+  const currHour = `${new Date().getHours().toString().padstart(2, "0")}:00`;
+  const groupedByDay = {}
+  hourlyForecast.forEach((timestamp, index)=>{
+    const todaysDate = new Date();
+    const todayDays = daysofWeek[todaysDate.getDay()]
+    if(!groupedByDay[todayDays]) return
+    groupedByDay[todayDays] = {
+      time: [],
+      weatherCode: [],
+      temperature: []
+    }
+    const startIndex = hourlyForecast.findIndex(h=> h === currHour);
+  })
   const currHourIndex = hoursOnly.findIndex((hour) => hour === currHour);
   for (let i = 0; i < 7; i++) {
     dailyChunks[daysofWeek[i]] = {
@@ -99,10 +111,10 @@ function filteringHourlyData(day = "monday", obj) {
   daysofWeek.forEach((day) => {
     daysList.innerHTML += `<button class="capitalize hover:bg-Neutral-600 hover:w-full cursor-pointer">${day}</button>`;
   });
-  console.log([weatherCode, time, temperature]);
-  for (let i = 0; i < 7; i++) {
+  // console.log([weatherCode, time, temperature]);
+  hourlDataSection.innerHTML = "";
+  for (let i = 0; i < time.length; i++) {
     let { hour } = timeTransformation(time[i]);
-    hourlDataSection.innerHTML = "";
     const hourIcon = weatherIcon(weatherCode[i]);
     const div = document.createElement("div");
     div.classList.add(

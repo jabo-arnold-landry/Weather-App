@@ -88,16 +88,26 @@
       </div>
       <section class="result-section"></section>
     </main>
-    <section class="grid gap-3 place-content-center place-items-center mx-2.5">
+    <section class="grid gap-3 place-content-center place-items-center mx-2.5" hidden>
       <img src="/images/icon-error.svg" alt="error image diaplay" />
       <div class="flex flex-col items-center justify-center gap-2.5">
-        <h1 class="">something went wrong</h1>
-        <p class="text-center sm:max-w-[25rem]">
+        <h1 class="text-4xl font-bold text-pretty text-center">
+          something went wrong
+        </h1>
+        <p
+          class="text-center sm:max-w-[25rem] text-xs sm:text-lg text-Neutral-600"
+        >
           We couldn't connect to the server(API error), Please try again in a
           few moments
         </p>
-        <button class="flex gap-3">
-          <img src="/images/icon-retry.svg" alt="retry image" />retry
+        <button
+          class="flex gap-1.5 items-center bg-Neutral-800 w-fit px-3 py-1.5 rounded-md cursor-pointer hover:bg-Neutral-600"
+        >
+          <img
+            src="/images/icon-retry.svg"
+            alt="retry image"
+            class="size-3.5"
+          />retry
         </button>
       </div>
     </section>

@@ -76,23 +76,6 @@ function extractingHoursForTheWeather(
   hourlyWeatherCode,
   hourlyTemperature
 ) {
-  const hoursOnly = hourlyForecast.map((element) => {
-    return element.split("T")[1];
-  });
-  const currHour = `${new Date().getHours().toString().padstart(2, "0")}:00`;
-  const groupedByDay = {}
-  hourlyForecast.forEach((timestamp, index)=>{
-    const todaysDate = new Date();
-    const todayDays = daysofWeek[todaysDate.getDay()]
-    if(!groupedByDay[todayDays]) return
-    groupedByDay[todayDays] = {
-      time: [],
-      weatherCode: [],
-      temperature: []
-    }
-    const startIndex = hourlyForecast.findIndex(h=> h === currHour);
-  })
-  const currHourIndex = hoursOnly.findIndex((hour) => hour === currHour);
   for (let i = 0; i < 7; i++) {
     const startIndex = i * 24 + 15; // getting hours at 3pm
     const endIndex = i * 24 + 22; //getting hours at 10pm

@@ -76,31 +76,56 @@ function extractingHoursForTheWeather(
   hourlyWeatherCode,
   hourlyTemperature
 ) {
-  for (let i = 0; i < 7; i++) {
-    const startIndex = i * 24 + 15; // getting hours at 3pm
-    const endIndex = i * 24 + 22; //getting hours at 10pm
-
-    dailyChunks[daysofWeek[i]] = {
-      time: hourlyForecast.slice(startIndex, endIndex),
-      weatherCode: hourlyWeatherCode.slice(startIndex, endIndex),
-      temperature: hourlyTemperature.slice(startIndex, endIndex),
+  const currDay = new Date().getDay();
+  const currHour = `${new Date().getHours().toString().padStart(2, "0")}:00`;
+  const weekDays = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
+  const groupedByDay = {};
+  hourlyForecast.forEach((timeStamp, index) => {
+    const todaysDate = new Date(timeStamp);
+    const todaysDay = weekDays[todaysDate.getDay()];
+    const hour = timeStamp.split("T")[1];
+    if (!groupedByDay[todaysDay]) {
+      groupedByDay[todaysDay] = {
+        time: [],
+        weatherCode: [],
+        temperature: [],
+      };
+    }
+    groupedByDay[todaysDay].time.push(hour);
+    groupedByDay[todaysDay].weatherCode.push(hourlyWeatherCode[index]);
+    groupedByDay[todaysDay].temperature.push(hourlyTemperature[index]);
+  });
+  weekDays.forEach((day) => {
+    const todaysData = groupedByDay[day];
+    let startIndex = todaysData.time.findIndex((hour) => hour === currHour);
+    dailyChunks[day] = {
+      time: todaysData.time.slice(startIndex, startIndex + 9),
+      weatherCode: todaysData.weatherCode.slice(startIndex, startIndex + 9),
+      temperature: todaysData.temperature.slice(startIndex, startIndex + 9),
     };
-  }
-  filteringHourlyData("monday", dailyChunks);
+  });
+  filteringHourlyData(weekDays[currDay], dailyChunks);
   return dailyChunks;
 }
-function filteringHourlyData(day = "monday", obj) {
+function filteringHourlyData(day, obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
+
   daysList.classList.toggle("hidden");
   daysList.innerHTML = "";
   daysofWeek.forEach((day) => {
     daysList.innerHTML += `<button class="capitalize hover:bg-Neutral-600 hover:w-full cursor-pointer">${day}</button>`;
   });
-  // console.log([weatherCode, time, temperature]);
   hourlDataSection.innerHTML = "";
-  for (let i = 0; i < time.length; i++) {
-    let { hour } = timeTransformation(time[i]);
+  for (let i = 0; i < 8; i++) {
     const hourIcon = weatherIcon(weatherCode[i]);
     const div = document.createElement("div");
     div.classList.add(
@@ -120,7 +145,7 @@ function filteringHourlyData(day = "monday", obj) {
               alt="weather code"
               class="size-12 inlin-block"
             />
-            <time datetime="now">${hour}</time>
+            <time datetime="now">${time[i]}</time>
           </div>
           <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
     docFragment.append(div);

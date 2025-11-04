@@ -30,7 +30,12 @@ export function timeTransformation(time) {
     month: "long",
     day: "numeric",
   });
-  let hour = currTime[1];
-  return {date, hour}
+  return {date}
+}// this will make the passed hour as 3PM or 3AM if it is in the moring
+export function normalHourFormat(hour){
+  hour = Number(hour.split(":")[0])
+  const meridian = hour < 12 ? "AM" : "PM";
+  const transformedHour = hour > 12 ? hour % 12 : hour;
+  return `${transformedHour}${meridian}`
 }
 export default weatherIcon;

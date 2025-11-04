@@ -118,12 +118,13 @@ function extractingHoursForTheWeather(
 function filteringHourlyData(day, obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
-
+  console.log(day);
   daysList.classList.toggle("hidden");
   daysList.innerHTML = "";
   daysofWeek.forEach((day) => {
     daysList.innerHTML += `<button class="capitalize hover:bg-Neutral-600 hover:w-full cursor-pointer">${day}</button>`;
   });
+  daysDropDownMenu.innerHTML = `${day} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
   hourlDataSection.innerHTML = "";
   for (let i = 0; i < 8; i++) {
     const hourIcon = weatherIcon(weatherCode[i]);
@@ -148,7 +149,7 @@ function filteringHourlyData(day, obj) {
             <time datetime="now">${normalHourFormat(time[i])}</time>
           </div>
           <p>${parseInt(temperature[i])}<sup>o</sup></p>`;
-          
+
     docFragment.append(div);
   }
   hourlDataSection.append(docFragment);
@@ -183,7 +184,6 @@ daysDropDownMenu.addEventListener("click", () => {
 daysList.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     filteringHourlyData(e.target.textContent, dailyChunks);
-    daysDropDownMenu.innerHTML = `${e.target.textContent} <img src="/images/icon-dropdown.svg" alt="dropdown icon" />`;
     daysList.hidden = true ? false : true;
   }
 });

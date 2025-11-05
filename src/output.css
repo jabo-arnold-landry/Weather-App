@@ -327,6 +327,9 @@
   .max-w-2\/5 {
     max-width: calc(2/5 * 100%);
   }
+  .max-w-32 {
+    max-width: calc(var(--spacing) * 32);
+  }
   .min-w-fit {
     min-width: fit-content;
   }
@@ -341,6 +344,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -365,6 +371,9 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
@@ -682,6 +691,11 @@
       height: calc(var(--spacing) * 36);
     }
   }
+  .sm\:w-32 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 32);
+    }
+  }
   .sm\:max-w-\[25rem\] {
     @media (width >= 40rem) {
       max-width: 25rem;
@@ -692,9 +706,19 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .sm\:flex-wrap {
+    @media (width >= 40rem) {
+      flex-wrap: wrap;
+    }
+  }
   .sm\:justify-between {
     @media (width >= 40rem) {
       justify-content: space-between;
+    }
+  }
+  .sm\:gap-3 {
+    @media (width >= 40rem) {
+      gap: calc(var(--spacing) * 3);
     }
   }
   .sm\:text-left {
@@ -737,6 +761,16 @@
   .md\:bg-\[url\(\'\/images\/bg-today-large\.svg\'\)\] {
     @media (width >= 48rem) {
       background-image: url('/images/bg-today-large.svg');
+    }
+  }
+  .\@max-xs\:grid {
+    @container (width < 20rem) {
+      display: grid;
+    }
+  }
+  .\@max-xs\:grid-cols-2 {
+    @container (width < 20rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   .\@xs\:mx-2\.5 {

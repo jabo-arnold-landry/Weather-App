@@ -50,12 +50,15 @@ async function getLocation(location) {
     buttonLoadingState(false);
   }
 }
+let tempUnits = "celsius";
+let windSpeedUnits = "kmh";
+let precipitationUnits = "mm";
 async function weatherInformation(lat, lon) {
   try {
     if (!isUserOnline()) return;
     loadingDataState(true);
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code&temperature_unit=${tempUnits}&wind_speed_unit=${windSpeedUnits}&precipitation_unit=${precipitationUnits}`
     );
     const weatherData = await response.json();
     const generalInfo = {

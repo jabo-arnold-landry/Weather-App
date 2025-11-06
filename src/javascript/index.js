@@ -4,10 +4,10 @@ import {
   extractingHoursForTheWeather,
   populatingHeroSectionWithData,
 } from "./cardsDisplay.js";
+import { buttonLoadingState, loadingDataState } from "./loadingStateSimulator.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
-const btn = form.querySelector("button");
 const weatherDataSection = document.querySelector("#weather-section");
 const searchSection = document.querySelector("main");
 const apiErrorSection = document.querySelector("#api-error");
@@ -22,7 +22,7 @@ function isUserOnline() {
 isUserOnline();
 async function getLocation(location) {
   try {
-    loadingState(true);
+    buttonLoadingState(true);
     const response = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`
     );
@@ -41,11 +41,12 @@ async function getLocation(location) {
     console.log("Somthing went wrong:", err);
     isUserOnline();
   } finally {
-    loadingState(false);
+    buttonLoadingState(false);
   }
 }
 async function weatherInformation(lat, lon) {
   try {
+    loadingDataState(true);
     const response = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code`
     );
@@ -89,22 +90,10 @@ async function weatherInformation(lat, lon) {
     };
   } catch (err) {
     console.log("something bad happened: ", err);
+  } finally {
+    loadingDataState(false);
   }
 }
-function loadingState(state) {
-  if (state) {
-    btn.disabled = true;
-    btn.innerHTML += `<img
-                src="/images/icon-loading.svg"
-                alt="loading-effects-icon"
-                class="px-2 animate-spin"
-              />`;
-    return;
-  }
-  btn.textContent = "Search";
-  btn.disabled = false;
-}
-
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!input.value) return alert("not something we can do");

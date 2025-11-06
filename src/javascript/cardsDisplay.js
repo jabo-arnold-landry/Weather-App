@@ -61,7 +61,7 @@ function sevenDaysForecastDisplay(
       "py-3"
     );
     div.innerHTML = `
-    <h3 class="capitalize font-bold text-md">${daysofWeek[i]}</h3>
+    <h3 class="capitalize font-bold text-md">${daysofWeek[i].substring(0,3)}</h3>
     <img src='${imgIcon}' alt="weather status image" class="size-20" >
     <section class="flex gap-2.5 px-1">
       <span>${parseInt(maxTempForecast)}<sup>o</sup></span>

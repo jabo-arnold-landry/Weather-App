@@ -3,6 +3,7 @@ const dailyForecastSection = document.querySelector("#daily-forecast-section");
 const hourlyForecastSection = document.querySelector(
   "#hourly-forecast-section"
 );
+const dailyForecastTitle = document.querySelector("#daily-forecast-title");
 const daysDropDownMenu = hourlyForecastSection.querySelector("button");
 const daysList = document.querySelector("#days-list");
 const hourlDataSection = document.querySelector("#hourly-data");
@@ -118,7 +119,6 @@ function extractingHoursForTheWeather(
 function filteringHourlyData(day, obj) {
   const docFragment = document.createDocumentFragment();
   const { weatherCode, time, temperature } = obj[day];
-  console.log(day);
   daysList.classList.toggle("hidden");
   daysList.innerHTML = "";
   daysofWeek.forEach((day) => {
@@ -153,6 +153,8 @@ function filteringHourlyData(day, obj) {
     docFragment.append(div);
   }
   hourlDataSection.append(docFragment);
+  dailyForecastTitle.classList.remove("hidden");
+  hourlyForecastSection.hidden = false;
 }
 function populatingHeroSectionWithData(obj) {
   const { temperature, weatherCode, isDay, time, country, city } = obj;

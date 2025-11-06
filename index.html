@@ -135,7 +135,12 @@
           class="grid gap-3 sm:grid-cols-3 md:grid-cols-4"
         ></section>
         <!-- Insert daily forecast for the next 7 days here -->
-        <h2>daily forecast</h2>
+        <h2
+          class="capitalize font-bold text-2xl hidden"
+          id="daily-forecast-title"
+        >
+          daily forecast
+        </h2>
         <section
           id="daily-forecast-section"
           class="grid grid-cols-3 gap-3 sm:flex flex-wrap"
@@ -146,6 +151,7 @@
         <section
           id="hourly-forecast-section"
           class="bg-Neutral-700 py-3 px-6 w-full rounded-md"
+          hidden
         >
           <div class="flex justify-between px-2">
             <strong class="font-light">Hourly forecast</strong>
@@ -167,7 +173,11 @@
       </div>
     </article>
     <!-- loading state markup this markup is ugly but it is planned to show up only when loading data -->
-    <main class="grid gap-5 md:place-content-center sm:flex md:grid-cols-2 md:gap-2 mx-4" hidden id="loading-state-section">
+    <main
+      class="grid gap-5 md:place-content-center sm:flex md:grid-cols-2 md:gap-2 mx-4"
+      hidden
+      id="loading-state-section"
+    >
       <div class="grid gap-7 mx-1.5">
         <section class="grid gap-5">
           <div

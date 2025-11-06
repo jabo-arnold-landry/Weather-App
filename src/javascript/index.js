@@ -4,22 +4,28 @@ import {
   extractingHoursForTheWeather,
   populatingHeroSectionWithData,
 } from "./cardsDisplay.js";
-import { buttonLoadingState, loadingDataState } from "./loadingStateSimulator.js";
+import {
+  buttonLoadingState,
+  loadingDataState,
+} from "./loadingStateSimulator.js";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const erroMessage = document.querySelector("#error-message");
 const weatherDataSection = document.querySelector("#weather-section");
 const searchSection = document.querySelector("main");
 const apiErrorSection = document.querySelector("#api-error");
-let isOnline = navigator.onLine;
+
 function isUserOnline() {
-  if (!isOnline) {
+  if (!navigator.onLine) {
     searchSection.hidden = true;
     apiErrorSection.hidden = false;
-    return;
+    return false;
   }
+  return true;
 }
-isUserOnline();
+window.addEventListener("offline", () => {
+  isUserOnline();
+});
 async function getLocation(location) {
   try {
     buttonLoadingState(true);
@@ -46,6 +52,7 @@ async function getLocation(location) {
 }
 async function weatherInformation(lat, lon) {
   try {
+    if (!isUserOnline()) return;
     loadingDataState(true);
     const response = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code`

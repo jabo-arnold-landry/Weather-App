@@ -29,7 +29,7 @@
           <img src="/images/icon-dropdown.svg" alt="" />
         </div>
         <div
-          class="drop-down-menu bg-Neutral-800 min-w-fit py-1.5 pl-2 pr-5 absolute -right-1 z-30 rounded-md mt-1 hidden"
+          class="drop-down-menu bg-Neutral-800 min-w-fit py-1.5 pl-2 pr-5 absolute -right-1 z-30 rounded-md mt-1"
         >
           <span class="text-neutral-200 line-clamp-1 mb-2 truncate"
             >switch to emperial</span
@@ -37,22 +37,22 @@
           <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
             <span class="text-Neutral-300">temperature</span>
             <div class="options text-white text-md space-y-3">
-              <button>celcius(<sup>o</sup>C)</button> <br />
-              <button>fahrenheit(<sup>o</sup>F)</button>
+              <button data-unit = "celsius">celcius(<sup>o</sup>C)</button> <br />
+              <button data-unit = "fahrenheit">fahrenheit(<sup>o</sup>F)</button>
             </div>
           </div>
           <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
             <span class="text-Neutral-300">wind speed</span>
             <div class="options text-white text-md space-y-3">
-              <button>km/h</button> <br />
-              <button>mph</button>
+              <button data-unit="kmh">km/h</button> <br />
+              <button data-unit="mph">mph</button>
             </div>
           </div>
           <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
             <span class="text-Neutral-300">precipitation</span>
             <div class="options text-white text-md space-y-3">
-              <button>millimeter(mm)</button> <br />
-              <button>inches(in)</button>
+              <button data-unit="mm">millimeter(mm)</button> <br />
+              <button data-unit="inch">inches(in)</button>
             </div>
           </div>
         </div>

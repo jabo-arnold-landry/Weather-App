@@ -129,3 +129,22 @@ form.addEventListener("submit", async (e) => {
     city,
   });
 });
+
+const unitDropDownTrigger = document.querySelector("#unit-drop-down-trigger");
+const unitsCardSection = document.querySelector("#units-cards-section");
+unitDropDownTrigger.addEventListener("click", (e) => {
+  unitsCardSection.classList.toggle("hidden");
+});
+
+const temperatureDatas = document.querySelector("[data-temp]");
+temperatureDatas.addEventListener("click", function (e) {
+  if (e.target.matches("button")) {
+    const images = temperatureDatas.querySelectorAll("img");
+    images.forEach((image) => {
+      image.classList.add("hidden");
+    });
+    tempUnits = e.target.dataset.unit;
+    console.log(tempUnits);
+    e.target.querySelector("img").classList.remove("hidden");
+  }
+});

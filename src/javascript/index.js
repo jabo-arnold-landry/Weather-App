@@ -14,7 +14,8 @@ const erroMessage = document.querySelector("#error-message");
 const weatherDataSection = document.querySelector("#weather-section");
 const searchSection = document.querySelector("main");
 const apiErrorSection = document.querySelector("#api-error");
-
+const refreshBtn = apiErrorSection.querySelector("button");
+refreshBtn.addEventListener("click", ()=> location.reload())
 function isUserOnline() {
   if (!navigator.onLine) {
     searchSection.hidden = true;

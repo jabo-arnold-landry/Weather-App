@@ -206,6 +206,9 @@
   .relative {
     position: relative;
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-2 {
     top: calc(var(--spacing) * 2);
   }
@@ -215,8 +218,59 @@
   .-right-1 {
     right: calc(var(--spacing) * -1);
   }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
+  }
   .left-2 {
     left: calc(var(--spacing) * 2);
+  }
+  .left-10 {
+    left: calc(var(--spacing) * 10);
+  }
+  .left-12 {
+    left: calc(var(--spacing) * 12);
+  }
+  .left-13 {
+    left: calc(var(--spacing) * 13);
+  }
+  .left-14 {
+    left: calc(var(--spacing) * 14);
+  }
+  .left-15 {
+    left: calc(var(--spacing) * 15);
+  }
+  .left-16 {
+    left: calc(var(--spacing) * 16);
+  }
+  .left-20 {
+    left: calc(var(--spacing) * 20);
+  }
+  .left-24 {
+    left: calc(var(--spacing) * 24);
+  }
+  .left-28 {
+    left: calc(var(--spacing) * 28);
+  }
+  .left-\[5\/rem\] {
+    left: 5/rem;
+  }
+  .left-\[5\] {
+    left: 5;
+  }
+  .left-\[5rem\] {
+    left: 5rem;
+  }
+  .left-\[6\.5rem\] {
+    left: 6.5rem;
+  }
+  .left-\[6rem\] {
+    left: 6rem;
+  }
+  .left-\[7rem\] {
+    left: 7rem;
+  }
+  .left-\[rem\] {
+    left: rem;
   }
   .z-20 {
     z-index: 20;
@@ -260,9 +314,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
-  .block {
-    display: block;
-  }
   .contents {
     display: contents;
   }
@@ -285,6 +336,10 @@
   .size-3\.5 {
     width: calc(var(--spacing) * 3.5);
     height: calc(var(--spacing) * 3.5);
+  }
+  .size-4 {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
   }
   .size-5 {
     width: calc(var(--spacing) * 5);
@@ -394,9 +449,6 @@
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
-  .gap-3\.5 {
-    gap: calc(var(--spacing) * 3.5);
-  }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
   }
@@ -431,9 +483,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  .rounded {
-    border-radius: 0.25rem;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -477,9 +526,6 @@
   }
   .bg-green-500 {
     background-color: var(--color-green-500);
-  }
-  .bg-red-600 {
-    background-color: var(--color-red-600);
   }
   .bg-\[url\(\'\/images\/bg-today-small\.svg\'\)\] {
     background-image: url('/images/bg-today-small.svg');
@@ -686,6 +732,24 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-Neutral-600);
+      }
+    }
+  }
+  .hover\:hover\:text-Neutral-300 {
+    &:hover {
+      @media (hover: hover) {
+        &:hover {
+          @media (hover: hover) {
+            color: var(--color-Neutral-300);
+          }
+        }
+      }
+    }
+  }
+  .hover\:text-Neutral-300 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-Neutral-300);
       }
     }
   }

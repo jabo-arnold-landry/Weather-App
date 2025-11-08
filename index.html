@@ -26,33 +26,106 @@
         >
           <img src="/images/icon-units.svg" alt="settings icon" class="" />
           <p>Units</p>
-          <img src="/images/icon-dropdown.svg" alt="" />
+          <img src="/images/icon-dropdown.svg" alt="drop-down-icon" />
         </div>
         <div
           class="drop-down-menu bg-Neutral-800 min-w-fit py-1.5 pl-2 pr-5 absolute -right-1 z-30 rounded-md mt-1"
+          id="units-cards-section"
         >
           <span class="text-neutral-200 line-clamp-1 mb-2 truncate"
             >switch to emperial</span
           >
-          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+          <div
+            class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2"
+            data-temp="temperature"
+          >
             <span class="text-Neutral-300">temperature</span>
-            <div class="options text-white text-md space-y-3">
-              <button data-unit = "celsius">celcius(<sup>o</sup>C)</button> <br />
-              <button data-unit = "fahrenheit">fahrenheit(<sup>o</sup>F)</button>
+            <div class="options text-white text-md">
+              <button
+                class="relative cursor-pointer hover:text-Neutral-300 mb-2"
+                data-unit="celsius"
+              >
+                celcius(<sup>o</sup>C)
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-20"
+                />
+              </button>
+              <br />
+              <button
+                class="relative cursor-pointer hover:hover:text-Neutral-300"
+                data-unit="fahrenheit"
+              >
+                fahrenheit(<sup>o</sup>F)
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-[6.5rem] hidden"
+                />
+              </button>
             </div>
           </div>
-          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+          <div
+            class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2"
+            data-wind="wind"
+          >
             <span class="text-Neutral-300">wind speed</span>
             <div class="options text-white text-md space-y-3">
-              <button data-unit="kmh">km/h</button> <br />
-              <button data-unit="mph">mph</button>
+              <button
+                class="relative cursor-pointer hover:text-Neutral-300 mb-2"
+                data-unit="kmh"
+              >
+                km/h
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-10"
+                />
+              </button>
+              <br />
+              <button
+                class="relative cursor-pointer hover:text-Neutral-300 mb-2"
+                data-unit="mph"
+              >
+                mph
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-10 hidden"
+                />
+              </button>
             </div>
           </div>
-          <div class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2">
+          <div
+            class="grid gap-2 divide-y-2 divide-Neutral-600 mb-2"
+            data-perc="prec"
+          >
             <span class="text-Neutral-300">precipitation</span>
             <div class="options text-white text-md space-y-3">
-              <button data-unit="mm">millimeter(mm)</button> <br />
-              <button data-unit="inch">inches(in)</button>
+              <button
+                class="relative cursor-pointer hover:text-Neutral-300 mb-2"
+                data-unit="mm"
+              >
+                millimeter(mm)
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-28"
+                />
+              </button>
+              <br />
+              <button
+                class="relative cursor-pointer hover:text-Neutral-300 mb-2"
+                data-unit="inch"
+              >
+                inches(in)
+                <img
+                  src="images/icon-checkmark.svg"
+                  alt="check mark icon for selected unit"
+                  class="size-4 absolute top-1 left-[5rem] hidden"
+                />
+              </button>
             </div>
           </div>
         </div>

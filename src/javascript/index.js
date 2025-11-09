@@ -15,7 +15,7 @@ const weatherDataSection = document.querySelector("#weather-section");
 const searchSection = document.querySelector("main");
 const apiErrorSection = document.querySelector("#api-error");
 const refreshBtn = apiErrorSection.querySelector("button");
-refreshBtn.addEventListener("click", ()=> location.reload())
+refreshBtn.addEventListener("click", () => location.reload());
 function isUserOnline() {
   if (!navigator.onLine) {
     searchSection.hidden = true;
@@ -133,19 +133,40 @@ form.addEventListener("submit", async (e) => {
 
 const unitDropDownTrigger = document.querySelector("#unit-drop-down-trigger");
 const unitsCardSection = document.querySelector("#units-cards-section");
-unitDropDownTrigger.addEventListener("click", (e) => {
-  unitsCardSection.classList.toggle("hidden");
-});
+unitDropDownTrigger.addEventListener("click", () =>
+  unitsCardSection.classList.toggle("hidden")
+);
 
 const temperatureDatas = document.querySelector("[data-temp]");
+const windDataSpeed = document.querySelector("[data-wind]");
+const precipitation = document.querySelector("[data-perc]");
+// console.log([windDataSpeed, precipitation])
+//listener for temperature unit change
 temperatureDatas.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
-    const images = temperatureDatas.querySelectorAll("img");
-    images.forEach((image) => {
-      image.classList.add("hidden");
-    });
-    tempUnits = e.target.dataset.unit;
-    console.log(tempUnits);
-    e.target.querySelector("img").classList.remove("hidden");
+    handlerFortheUserSelectedUnit(this, e.target, tempUnits);
   }
 });
+//listener for windspeed unit change
+windDataSpeed.addEventListener("click", function (e) {
+  if (e.target.matches("button")) {
+    handlerFortheUserSelectedUnit(this, e.target, windSpeedUnits);
+  }
+});
+//listener for percipitation unit change
+precipitation.addEventListener("click", function (e) {
+  if (e.target.matches("button")) {
+    handlerFortheUserSelectedUnit(this, e.target, precipitationUnits);
+  }
+});
+//this will be called on each unit section to handle each unit independently and correcttly switch the right unit and also higlight it wit the checkmark
+function handlerFortheUserSelectedUnit(parentElement, target, unitToChange) {
+  const images = parentElement.querySelectorAll("img");
+
+  images.forEach((image) => {
+    image.classList.add("hidden");
+  });
+  unitToChange = target.dataset.unit;
+  console.log(unitToChange);
+  target.querySelector("img").classList.remove("hidden");
+}

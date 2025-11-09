@@ -92,7 +92,6 @@ async function weatherInformation(lat, lon) {
       weatherData.hourly.weather_code,
       weatherData.hourly.temperature_2m
     );
-    console.log(weatherData);
     return {
       temperature: weatherData.current.temperature_2m,
       time: weatherData.current.time,
@@ -140,7 +139,6 @@ unitDropDownTrigger.addEventListener("click", () =>
 const temperatureDatas = document.querySelector("[data-temp]");
 const windDataSpeed = document.querySelector("[data-wind]");
 const precipitation = document.querySelector("[data-perc]");
-// console.log([windDataSpeed, precipitation])
 //listener for temperature unit change
 temperatureDatas.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
@@ -167,6 +165,5 @@ function handlerFortheUserSelectedUnit(parentElement, target, unitToChange) {
     image.classList.add("hidden");
   });
   unitToChange = target.dataset.unit;
-  console.log(unitToChange);
   target.querySelector("img").classList.remove("hidden");
 }

@@ -37,7 +37,7 @@ async function getLocation(location) {
     if (!data.results) {
       return "";
     }
-    console.log(data);
+
     return {
       country: data.results[0].country,
       city: data.results[0].name,
@@ -64,6 +64,7 @@ if (localStorage.getItem("units") == null) {
 const units = JSON.parse(localStorage.getItem("units"));
 
 async function weatherInformation(lat, lon) {
+  const { tempUnits, windSpeedUnits, precipitationUnits } = units;
   try {
     if (!isUserOnline()) return;
     loadingDataState(true);
@@ -177,9 +178,7 @@ function handlerFortheUserSelectedUnit(parentElement, target, unitToChange) {
   images.forEach((image) => {
     image.classList.add("hidden");
   });
-
   target.querySelector("img").classList.remove("hidden");
-  
   units[parentElement.id] = target.dataset.unit;
   localStorage.setItem("units", JSON.stringify(units));
 }

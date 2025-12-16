@@ -54,6 +54,15 @@ async function getLocation(location) {
 let tempUnits = "celsius";
 let windSpeedUnits = "kmh";
 let precipitationUnits = "mm";
+
+const weatherUnits = { tempUnits, windSpeedUnits, precipitationUnits };
+
+if (localStorage.getItem("units") == null) {
+  localStorage.setItem("units", JSON.stringify(weatherUnits));
+}
+
+const units = JSON.parse(localStorage.getItem("units"));
+
 async function weatherInformation(lat, lon) {
   try {
     if (!isUserOnline()) return;
@@ -139,24 +148,28 @@ unitDropDownTrigger.addEventListener("click", () =>
 const temperatureDatas = document.querySelector("[data-temp]");
 const windDataSpeed = document.querySelector("[data-wind]");
 const precipitation = document.querySelector("[data-perc]");
+
 //listener for temperature unit change
 temperatureDatas.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
     handlerFortheUserSelectedUnit(this, e.target, tempUnits);
   }
 });
+
 //listener for windspeed unit change
 windDataSpeed.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
     handlerFortheUserSelectedUnit(this, e.target, windSpeedUnits);
   }
 });
+
 //listener for percipitation unit change
 precipitation.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
     handlerFortheUserSelectedUnit(this, e.target, precipitationUnits);
   }
 });
+
 //this will be called on each unit section to handle each unit independently and correcttly switch the right unit and also higlight it wit the checkmark
 function handlerFortheUserSelectedUnit(parentElement, target, unitToChange) {
   const images = parentElement.querySelectorAll("img");
@@ -164,6 +177,19 @@ function handlerFortheUserSelectedUnit(parentElement, target, unitToChange) {
   images.forEach((image) => {
     image.classList.add("hidden");
   });
-  unitToChange = target.dataset.unit;
+
   target.querySelector("img").classList.remove("hidden");
+  
+  units[parentElement.id] = target.dataset.unit;
+  localStorage.setItem("units", JSON.stringify(units));
 }
+
+const unitMenu = document.querySelector("#units-cards-section");
+const btns = unitMenu.querySelectorAll("button");
+
+let unitValues = Object.values(units);
+btns.forEach((btn) => {
+  if (unitValues.includes(btn.dataset.unit)) {
+    btn.querySelector("img").classList.remove("hidden");
+  }
+});
